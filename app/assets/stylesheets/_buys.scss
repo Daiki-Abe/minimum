@@ -1,3 +1,76 @@
 // Place all the styles related to the buys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.item-area {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: black;
+  height: 50px;
+  width: 100%;
+  font-size: 20px;
+  text-align: center;
+
+  &__item {
+    line-height: 50px;
+    height: 50px;
+    margin: 0 20px;
+  }
+
+  &__item.search-box {
+    display: flex;
+
+    &__tag, &__free {
+      border: solid 1px white;
+      width: 300px;
+    }
+  }
+}
+
+.buy {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    height: 300px;
+    width: calc(100vw / 3);
+    background-color: rgb(42, 57, 83);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+
+      .item-title {
+        margin-left: 10px;
+        font-size: 20px;
+      }
+
+      .item-bar {
+        margin-right: 10px;
+        font-size: 30px;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+
+      .item-icon {
+        margin-left: 10px;
+
+        &__hate {
+          margin-right: 15px;
+        }
+      }
+
+      .item-writer {
+        margin-right: 10px;
+      }
+    }
+  }
+}
