@@ -27,3 +27,50 @@
     }
   }
 }
+
+.buy {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    height: 300px;
+    width: calc(100vw / 3);
+    background-color: rgb(42, 57, 83);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+
+      .item-title {
+        margin-left: 10px;
+        font-size: 20px;
+      }
+
+      .item-bar {
+        margin-right: 10px;
+        font-size: 30px;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+
+      .item-icon {
+        margin-left: 10px;
+
+        &__hate {
+          margin-right: 15px;
+        }
+      }
+
+      .item-writer {
+        margin-right: 10px;
+      }
+    }
+  }
+}
