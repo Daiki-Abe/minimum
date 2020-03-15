@@ -1,0 +1,50 @@
+.wrapper
+  = render "shared/header"
+
+  .buy-show
+    .buy-show__image
+      .buy-show__image-bar
+        = icon('fas fa-caret-down', class: "menu-icon")
+      .buy-show__image-icon
+        .buy-show__image-icon__hate
+          = icon('fas fa-heart-broken', class: "hate-icon")
+          ４
+        .buy-show__image-icon__comment
+          = icon('fas fa-comment-alt', class: "comment-icon")
+          ２
+    .buy-show__list
+      %table
+        %tr
+          %th.buy-show__item-bottom.show-writer
+            投稿者
+          %td.buy-show__item-bottom.show-writer
+            アーベ
+        %tr
+          %th.buy-show__list-title
+            購入品
+          %td.buy-show__list-title
+            SARDのCD
+        %tr
+          %th.buy-show__list-tag
+            タグ
+          %td.buy-show__list-tag
+            娯楽費
+        %tr
+          %th.buy-show__list-description
+            購入した理由
+          %td.buy-show__list-description
+            今後の生活に活力を与えてくれると感じたから。
+
+  .buy-comment__title
+    〈コメント一覧〉
+  .buy-comment__list
+    .buy-comment__list-writter
+      ゆうあ：
+    .buy-comment__list-comment
+      いい買い物だと思います。
+      
+  .buy-comment__list
+    .buy-comment__list-writter
+      杉ちゃん：
+    .buy-comment__list-comment
+      私も買いました。

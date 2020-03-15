@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.wrapper {
+  background-color: black;
+  color: white;
+}
+
 .item-area {
   display: flex;
   justify-content: space-between;
@@ -73,4 +78,71 @@
       }
     }
   }
+}
+
+.buy-show {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+
+  &__image {
+    height: 400px;
+    width: 500px;
+    background-color: rgb(42, 57, 83);
+    margin-top: 50px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    &-bar {
+      margin-left: 20px;
+      font-size: 40px;
+    }
+
+    &-icon {
+      display: flex;
+      margin-left: 20px;
+
+      &__comment {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__list {
+    width: 450px;
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+}
+
+th {
+  width: 130px;
+  background-color: rgb(43, 53, 70);
+  border-bottom: solid 0.3px gray;
+}
+
+td {
+  width: 320px;
+  background-color: rgb(69, 77, 90);
+  padding-left: 15px;
+  border-bottom: solid 0.3px gray;
+}
+
+.buy-comment__title {
+  width: 970px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: rgb(43, 53, 70);
+  font-size: 20px;
+  text-align: center;
+}
+
+.buy-comment__list {
+  width: 970px;
+  margin: 0 auto;
+  display: flex;
+  background-color: rgb(69, 77, 90);
+  font-size: 20px;
+  border-bottom: solid 0.3px gray;
 }
