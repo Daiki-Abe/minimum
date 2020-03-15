@@ -12,6 +12,14 @@
   background-color: rgb(43, 53, 70);
 }
 
+@mixin form-item {
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px gray;
+}
+
 .wrapper {
   background-color: black;
   color: white;
@@ -167,20 +175,12 @@ td {
 
   &-goods {
     height: 50px;
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
+    @include form-item;
   }
 
   &-price {
     height: 50px;
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
+    @include form-item;
   }
 
   &-image {
@@ -203,22 +203,12 @@ td {
   }
 
   &-description {
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
-    
+    @include form-item;
   }
 
   &-submit {
-    width: 600px;
-    height: 40px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    font-size: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
+    height: 50px;
+    @include form-item;
   }
 
   &-submit:hover {
