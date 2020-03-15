@@ -1,6 +1,24 @@
 // Place all the styles related to the buys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin menu-title {
+  width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: rgb(43, 53, 70);
+}
+
+@mixin form-item {
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px gray;
+}
 
 .wrapper {
   background-color: black;
@@ -10,8 +28,6 @@
 .item-area {
   display: flex;
   justify-content: space-between;
-  color: white;
-  background-color: black;
   height: 50px;
   width: 100%;
   font-size: 20px;
@@ -148,10 +164,7 @@ td {
 }
 
 .form__title {
-  font-size: 50px;
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: rgb(43, 53, 70);
+  @include menu-title;
 }
 
 .send__buy {
@@ -162,20 +175,12 @@ td {
 
   &-goods {
     height: 50px;
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
+    @include form-item;
   }
 
   &-price {
     height: 50px;
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
+    @include form-item;
   }
 
   &-image {
@@ -198,25 +203,26 @@ td {
   }
 
   &-description {
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
-    
+    @include form-item;
   }
 
   &-submit {
-    width: 600px;
-    height: 40px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    font-size: 30px;
-    border-radius: 10px;
-    box-shadow: 3px 3px 3px gray;
+    height: 50px;
+    @include form-item;
   }
 
   &-submit:hover {
     background-color: cornflowerblue;
   }
+}
+
+.create__title {
+  @include menu-title;
+}
+
+.create__subtitle {
+  height: 450px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
 }
