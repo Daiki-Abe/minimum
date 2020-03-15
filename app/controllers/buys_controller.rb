@@ -3,9 +3,18 @@ class BuysController < ApplicationController
   end
 
   def new
-    @buy = Buys.new
+    @buy = Buy.new
+  end
+
+  def create
+    Buy.create(buy_params)
   end
 
   def show
+  end
+
+  private
+  def buy_params
+    params.require(:Buy).permit(:goods, :price, :image, :description).merge(user_id: current_user.id)
   end
 end
