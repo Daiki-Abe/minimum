@@ -146,3 +146,77 @@ td {
   font-size: 20px;
   border-bottom: solid 0.3px gray;
 }
+
+.form__title {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: rgb(43, 53, 70);
+}
+
+.send__buy {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  font-size: 20px;
+
+  &-goods {
+    height: 50px;
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+  }
+
+  &-price {
+    height: 50px;
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+  }
+
+  &-image {
+    height: 50px;
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    &__icon {
+      font-size: 60px;
+    }
+
+    &__icon:hover {
+      color: cornflowerblue;
+    }
+
+    &__field {
+      display: none;
+    }
+  }
+
+  &-description {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+    
+  }
+
+  &-submit {
+    width: 600px;
+    height: 40px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-size: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+  }
+
+  &-submit:hover {
+    background-color: cornflowerblue;
+  }
+}
