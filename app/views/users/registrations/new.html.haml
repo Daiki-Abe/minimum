@@ -28,7 +28,7 @@
       %br/
       = f.password_field :password_confirmation, autocomplete: "new-password", class: "user__field"
 
-    .actions
-      = f.submit "Sign up"
+    .user-submit
+      = f.submit "ユーザー登録をする", class: "user-submit__btn"
       
   = render "users/shared/links"
