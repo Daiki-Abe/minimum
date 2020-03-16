@@ -8,12 +8,12 @@
     .field.user-name
       = f.label :name
       %br/
-      = f.text_field :name, autofocus: true, autocomplete: "name"
+      = f.text_field :name, autofocus: true, autocomplete: "name", class: "user-name__field"
 
     .field.user-email
       = f.label :email
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "user-email__field"
 
     .field.user-password
       = f.label :password
@@ -21,12 +21,12 @@
         %em
           (#{@minimum_password_length} characters minimum)
       %br/
-      = f.password_field :password, autocomplete: "new-password"
+      = f.password_field :password, autocomplete: "new-password", class: "user-password__field"
 
     .field.user-password_confirmation
       = f.label :password_confirmation
       %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password"
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "user-password_confirmation__field"
 
     .actions
       = f.submit "Sign up"
