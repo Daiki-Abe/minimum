@@ -1,20 +1,21 @@
 .wrapper
   = render "shared/header" 
 
-  %h2 Sign up
+  .sign-up__form
+    ユーザー新規登録
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
-    .field
+    .field.user-name
       = f.label :name
       %br/
       = f.text_field :name, autofocus: true, autocomplete: "name"
 
-    .field
+    .field.user-email
       = f.label :email
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email"
 
-    .field
+    .field.user-password
       = f.label :password
       - if @minimum_password_length
         %em
@@ -22,7 +23,7 @@
       %br/
       = f.password_field :password, autocomplete: "new-password"
 
-    .field
+    .field.user-password_confirmation
       = f.label :password_confirmation
       %br/
       = f.password_field :password_confirmation, autocomplete: "new-password"
