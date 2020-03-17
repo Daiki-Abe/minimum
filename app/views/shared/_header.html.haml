@@ -10,7 +10,7 @@
   %a{href: buys_path, class: "menu-bar__item buy-list"}
     『購入品』List
   - if user_signed_in?
-    = link_to "My page", user_path(:id), class: "menu-bar__item mypage"
+    = link_to "My page", user_path(current_user.id), class: "menu-bar__item mypage"
     = link_to "Log out", destroy_user_session_path, method: :delete, class: "menu-bar__item logout"
   - else
     = link_to "Sign up", new_user_registration_path, class: "menu-bar__item signup"
