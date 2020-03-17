@@ -2,8 +2,8 @@
 
   = render "shared/header"
 
-  .sign-up__form
-    Minimumにログインしましょう
+  .log-in__form
+    Minimumにログインする
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field.user-email
       = f.label :email
