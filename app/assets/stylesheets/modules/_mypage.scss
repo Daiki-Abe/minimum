@@ -23,5 +23,15 @@
   &__main-area {
     margin: 0 auto;
     text-align: center;
+
+    &__title {
+      // _buys.scssにて定義をしている
+      @include menu-title;
+    }
+
+    &__discard, &__like, &__buy, &__hate {
+      @include menu-title;
+      font-size: 25px;
+    }
   }
 }
