@@ -20,11 +20,6 @@
   box-shadow: 3px 3px 3px gray;
 }
 
-.wrapper {
-  background-color: black;
-  color: white;
-}
-
 .item-area {
   display: flex;
   justify-content: space-between;
@@ -163,8 +158,16 @@ td {
   border-bottom: solid 0.3px gray;
 }
 
-.form__title {
-  @include menu-title;
+.send-buy__page {
+  display: flex;
+}
+
+.send-buy__form {
+  margin: 0 auto;
+
+  .form__title {
+    @include menu-title;
+  }
 }
 
 .send__buy {

@@ -1,19 +1,18 @@
-.wrapper
-  .log-in__form
-    Minimumにログインする
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field.user-email
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
+.log-in__form
+  Minimumにログインする
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field.user-email
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
 
-    .field.user-password
-      = f.label :password
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} 文字以上)
-      %br/
-      = f.password_field :password, autocomplete: "new-password", class: "user__field"
+  .field.user-password
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} 文字以上)
+    %br/
+    = f.password_field :password, autocomplete: "new-password", class: "user__field"
 
-    .user-submit
-      = f.submit "ログインする", class: "user-submit__btn"
+  .user-submit
+    = f.submit "ログインする", class: "user-submit__btn"

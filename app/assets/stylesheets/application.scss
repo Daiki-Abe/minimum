@@ -1,6 +1,12 @@
 @import "reset";
 @import "buys";
 @import "modules/header";
+@import "modules/mypage";
 @import "users";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+body {
+  color: white;
+  background-color: black;
+}

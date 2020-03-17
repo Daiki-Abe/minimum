@@ -1,0 +1,39 @@
+.mypage__side-area {
+  width: calc(100vw - 80%);
+  background-color: rgb(43, 53, 70);
+  font-size: 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+
+  &__title {
+    border-radius: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    padding-bottom: 30px;
+  }
+}
+
+.mypage {
+  display: flex;
+
+  &__main-area {
+    margin: 0 auto;
+    text-align: center;
+
+    &__title {
+      // _buys.scssにて定義をしている
+      @include menu-title;
+    }
+
+    &__discard, &__like, &__buy, &__hate {
+      @include menu-title;
+      font-size: 25px;
+    }
+  }
+}
