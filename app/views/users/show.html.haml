@@ -4,10 +4,14 @@
     .mypage__main-area__title
       = "#{@user.name}のMinimum"
     .mypage__main-area__discard
+      = icon("fas fa-trash-alt", class: "garbage-icon")
       今までの断捨離：15
     .mypage__main-area__like
+      = icon("fas fa-heart", class: "heart-icon")
       今までのいいね：30
     .mypage__main-area__buy
+      = icon("fas fa-shopping-cart", class: "heart-icon")
       今までの購入品：10
     .mypage__main-area__hate
+      = icon('fas fa-heart-broken', class: "hate-icon")
       今までのだめね：18
