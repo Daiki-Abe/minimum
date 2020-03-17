@@ -1,4 +1,13 @@
 .mypage
   = render "shared/mypage"
   .mypage__main-area
-    = @user.name
+    .mypage__main-area__title
+      = "#{@user.name}さん"
+    .mypage__main-area__discard
+      今までの断捨離：
+    .mypage__main-area__like
+      今までのいいね：
+    .mypage__main-area__buy
+      今までの購入品：
+    .mypage__main-area__hate
+      今までのだめね：

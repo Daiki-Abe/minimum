@@ -16,3 +16,12 @@
     padding-bottom: 30px;
   }
 }
+
+.mypage {
+  display: flex;
+
+  &__main-area {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
