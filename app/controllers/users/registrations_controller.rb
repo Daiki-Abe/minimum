@@ -60,7 +60,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def after_sign_in_path_for(resource)
-    root_path
-  end
+  protected
+
+    def after_sign_in_path_for(resource)
+      root_path
+    end
+
+    def after_update_path_for(resource)
+      user_path(id: current_user.id)
+    end
 end
