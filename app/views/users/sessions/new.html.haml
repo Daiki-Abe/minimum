@@ -9,10 +9,14 @@
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
 
-    .field
+    .field.user-password
       = f.label :password
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} 文字以上)
       %br/
-      = f.password_field :password, autocomplete: "current-password"
+      = f.password_field :password, autocomplete: "new-password", class: "user__field"
+      
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me
