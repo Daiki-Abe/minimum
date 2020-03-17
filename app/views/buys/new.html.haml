@@ -2,6 +2,7 @@
   = render "shared/mypage"
   .send-buy__form
     .send-buy__form.form__title
+      = icon("fas fa-shopping-cart", class: "shopping-icon")
       購入品を投稿する
     .send-buy__form.form__buy
       = form_for [@buy], html: {class: "form__area"} do |f|
