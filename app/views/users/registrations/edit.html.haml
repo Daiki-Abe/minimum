@@ -1,12 +1,12 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
+.sign-up__form
+  ユーザー情報の編集
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field.user-name
     = f.label :name
     %br/
     = f.text_field :name, autofocus: true, autocomplete: "name", class: "user__field"
-    
+
   .field
     = f.label :email
     %br/
@@ -14,16 +14,18 @@
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
+
   .field
     = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
+    %i （任意）
     - if @minimum_password_length
       %br/
       %em
         = @minimum_password_length
-        characters minimum
+        文字以上
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+    
   .field
     = f.label :password_confirmation
     %br/
