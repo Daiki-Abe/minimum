@@ -3,11 +3,13 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field.user-email
     = f.label :email
+    %em（必須）
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
 
   .field.user-password
     = f.label :password
+    %em（必須）
     - if @minimum_password_length
       %em
         (#{@minimum_password_length} 文字以上)
