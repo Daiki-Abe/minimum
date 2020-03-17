@@ -16,11 +16,7 @@
           (#{@minimum_password_length} 文字以上)
       %br/
       = f.password_field :password, autocomplete: "new-password", class: "user__field"
-      
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
+
     .actions
       = f.submit "Log in"
   = render "users/shared/links"
