@@ -17,10 +17,10 @@
 
   .field
     = f.label :password
-    %em（任意）
     - if @minimum_password_length
       = @minimum_password_length
       文字以上
+      %em（任意）
     %br/
     = f.password_field :password, autocomplete: "new-password", class: "user__field"
     
