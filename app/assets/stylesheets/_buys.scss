@@ -163,8 +163,16 @@ td {
   border-bottom: solid 0.3px gray;
 }
 
-.form__title {
-  @include menu-title;
+.send-buy__page {
+  display: flex;
+}
+
+.send-buy__form {
+  margin: 0 auto;
+
+  .form__title {
+    @include menu-title;
+  }
 }
 
 .send__buy {
