@@ -17,6 +17,6 @@
       %br/
       = f.password_field :password, autocomplete: "new-password", class: "user__field"
 
-    .actions
-      = f.submit "Log in"
+    .user-submit
+      = f.submit "ログインをする", class: "user-submit__btn"
   = render "users/shared/links"
