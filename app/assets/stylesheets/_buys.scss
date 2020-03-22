@@ -5,7 +5,7 @@
   width: 600px;
   margin: 0 auto;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 40px;
   text-align: center;
   margin-bottom: 30px;
@@ -13,11 +13,11 @@
 }
 
 @mixin form-item {
-  width: 600px;
+  width: 402px;
   margin: 0 auto;
+  padding: 10px 16px 8px;
   margin-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 3px 3px 3px gray;
+  border-radius: 5px;
 }
 
 .item-area {
@@ -177,7 +177,7 @@ td {
   font-size: 20px;
 
   &-goods {
-    height: 50px;
+    height: 40px;
     @include form-item;
   }
 
@@ -187,8 +187,8 @@ td {
   }
 
   &-image {
-    height: 50px;
-    width: 600px;
+    height: 62px;
+    width: 432px;
     margin: 0 auto;
     margin-bottom: 30px;
 
@@ -210,8 +210,12 @@ td {
   }
 
   &-submit {
-    height: 50px;
-    @include form-item;
+    height: 62px;
+    width: 432px;
+    margin: 0 auto;
+    padding: 10px 16px 8px;
+    margin-bottom: 30px;
+    border-radius: 5px;
   }
 
   &-submit:hover {
