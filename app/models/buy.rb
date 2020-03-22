@@ -6,4 +6,6 @@ class Buy < ApplicationRecord
     validates :price
     validates :description
   end
+
+  mount_uploader :image, ImageUploader
 end

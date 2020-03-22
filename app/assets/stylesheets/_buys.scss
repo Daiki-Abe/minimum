@@ -49,7 +49,7 @@
   flex-wrap: wrap;
 
   &__item {
-    height: 300px;
+    height: 500px;
     width: calc(100vw / 3);
     background-color: rgb(42, 57, 83);
     display: flex;
@@ -97,8 +97,8 @@
   font-size: 20px;
 
   &__image {
-    height: 400px;
-    width: 500px;
+    height: 500px;
+    width: 426px;
     background-color: rgb(42, 57, 83);
     margin-top: 50px;
     display: flex;
@@ -140,22 +140,26 @@ td {
   border-bottom: solid 0.3px gray;
 }
 
-.buy-comment__title {
-  width: 970px;
-  margin: 0 auto;
-  margin-top: 30px;
-  background-color: rgb(43, 53, 70);
-  font-size: 20px;
-  text-align: center;
-}
+.buy-comment {
+  padding-bottom: 40px;
 
-.buy-comment__list {
-  width: 970px;
-  margin: 0 auto;
-  display: flex;
-  background-color: rgb(69, 77, 90);
-  font-size: 20px;
-  border-bottom: solid 0.3px gray;
+  &__title {
+    width: 896px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: rgb(43, 53, 70);
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__list {
+    width: 896px;
+    margin: 0 auto;
+    display: flex;
+    background-color: rgb(69, 77, 90);
+    font-size: 20px;
+    border-bottom: solid 0.3px gray;
+  }
 }
 
 .send-buy__page {

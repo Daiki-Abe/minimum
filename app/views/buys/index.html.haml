@@ -8,71 +8,20 @@
       フリーワード検索
 
 .buy
-  .buy__item
-    .buy__item-top
-      .buy__item-top.item-title
-        SARDのCD
-      .buy__item-top.item-bar
-        = icon('fas fa-caret-down', class: "menu-icon")
-    .buy__item-bottom
-      .buy__item-bottom.item-icon
-        .buy__item-bottom.item-icon__hate
-          = icon('fas fa-heart-broken', class: "hate-icon")
-          ４
-        .buy__item-bottom.item-icon__comment
-          = icon('fas fa-comment-alt', class: "comment-icon")
-          ２
-      .buy__item-bottom.item-writer
-        アーベ
-
-
-  .buy__item
-    .buy__item-top
-      .buy__item-top.item-title
-        SARDのCD
-      .buy__item-top.item-bar
-        = icon('fas fa-caret-down', class: "menu-icon")
-    .buy__item-bottom
-      .buy__item-bottom.item-icon
-        .buy__item-bottom.item-icon__hate
-          = icon('fas fa-heart-broken', class: "hate-icon")
-          ５
-        .buy__item-bottom.item-icon__comment
-          = icon('fas fa-comment-alt', class: "comment-icon")
-          ０
-      .buy__item-bottom.item-writer
-        アーベ
-
-  .buy__item
-    .buy__item-top
-      .buy__item-top.item-title
-        SARDのCD
-      .buy__item-top.item-bar
-        = icon('fas fa-caret-down', class: "menu-icon")
-    .buy__item-bottom
-      .buy__item-bottom.item-icon
-        .buy__item-bottom.item-icon__hate
-          = icon('fas fa-heart-broken', class: "hate-icon")
-          ０
-        .buy__item-bottom.item-icon__comment
-          = icon('fas fa-comment-alt', class: "comment-icon")
-          １
-      .buy__item-bottom.item-writer
-        アーベ
-
-  .buy__item
-    .buy__item-top
-      .buy__item-top.item-title
-        SARDのCD
-      .buy__item-top.item-bar
-        = icon('fas fa-caret-down', class: "menu-icon")
-    .buy__item-bottom
-      .buy__item-bottom.item-icon
-        .buy__item-bottom.item-icon__hate
-          = icon('fas fa-heart-broken', class: "hate-icon")
-          １０
-        .buy__item-bottom.item-icon__comment
-          = icon('fas fa-comment-alt', class: "comment-icon")
-          ９
-      .buy__item-bottom.item-writer
-        アーベ
+  - @buys.each do |buy|
+    .buy__item{:style => "background-image: url(#{buy.image.url})"}
+      .buy__item-top
+        .buy__item-top.item-title
+          = buy.goods
+        .buy__item-top.item-bar
+          = icon('fas fa-caret-down', class: "menu-icon")
+      .buy__item-bottom
+        .buy__item-bottom.item-icon
+          .buy__item-bottom.item-icon__hate
+            = icon('fas fa-heart-broken', class: "hate-icon")
+            ４
+          .buy__item-bottom.item-icon__comment
+            = icon('fas fa-comment-alt', class: "comment-icon")
+            ２
+        .buy__item-bottom.item-writer
+          = buy.user.name
