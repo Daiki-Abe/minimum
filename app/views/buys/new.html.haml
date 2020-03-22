@@ -7,11 +7,11 @@
     .send-buy__form.form__buy
       = form_for [@buy], html: {class: "form__area"} do |f|
         .send__buy
-          = f.text_field :goods, class: "send__buy-goods", placeholder: "購入品"
-          = f.text_field :price, class: "send__buy-price", placeholder: "購入金額"
+          = f.text_field :goods, class: "send__buy-goods", placeholder: "購入品 （例）MacBook"
+          = f.text_field :price, class: "send__buy-price", placeholder: "購入金額 （例）150000円"
           = f.label :image, class: "send__buy-image" do
             = icon('fas', 'image', class: "send__buy-image__icon")
             写真を選択してください
             = f.file_field :image, class: "send__buy-image__field"
-          = f.text_area :description, class: "send__buy-description", rows: "10", placeholder: "購入した理由"
+          = f.text_area :description, class: "send__buy-description", rows: "10", placeholder: "購入した理由 （例）プログラミング学習をするために、購入しました。"
           = f.submit "Send", class: "send__buy-submit"
