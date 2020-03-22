@@ -1,5 +1,6 @@
 class BuysController < ApplicationController
   def index
+    @buys = Buy.includes(:user)
   end
 
   def new
