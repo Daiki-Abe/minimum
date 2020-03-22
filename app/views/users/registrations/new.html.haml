@@ -4,13 +4,13 @@
   = render "devise/shared/error_messages", resource: resource
   .field.user-name
     = f.label :name
-    %em（必須）
+    %em 必須
     %br/
     = f.text_field :name, autofocus: true, autocomplete: "name", class: "user__field"
 
   .field.user-email
     = f.label :email
-    %em（必須）
+    %em 必須
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
 
@@ -18,13 +18,13 @@
     = f.label :password
     - if @minimum_password_length
       (#{@minimum_password_length} 文字以上)
-      %em（必須）
+      %em 必須
     %br/
     = f.password_field :password, autocomplete: "new-password", class: "user__field"
 
   .field.user-password_confirmation
     = f.label :password_confirmation
-    %em（必須）
+    %em 必須
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password", class: "user__field"
 
