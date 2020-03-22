@@ -3,18 +3,15 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field.user-email
     = f.label :email
-    %em（必須）
+    %em 必須
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field", placeholder: "携帯・パソコンどちらでも可"
 
   .field.user-password
     = f.label :password
-    %em（必須）
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} 文字以上)
+    %em 必須
     %br/
-    = f.password_field :password, autocomplete: "new-password", class: "user__field"
+    = f.password_field :password, autocomplete: "new-password", class: "user__field", placeholder: "半角英数字６文字以上"
 
   .user-submit
     = f.submit "ログインする", class: "user-submit__btn"
