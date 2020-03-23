@@ -8,4 +8,13 @@ class Buy < ApplicationRecord
   end
 
   mount_uploader :image, ImageUploader
+
+  def self.search(search)
+    if search
+      Buy.where('goods LIKE(?)', "%#{search}%")
+    else
+      Buy.all
+    end
+  end
+
 end
