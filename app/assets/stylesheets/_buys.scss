@@ -37,12 +37,7 @@
   &__item.search-box {
     display: flex;
 
-    &__tag {
-      border: solid 1px white;
-      width: 300px;
-    }
-
-    &__free {
+    &__tag, &__free {
       width: 300px;
     }
   }
