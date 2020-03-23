@@ -14,6 +14,10 @@ class BuysController < ApplicationController
   def show
   end
 
+  def search
+    @buys = Buy.search(params[:keyword])
+  end
+
   private
   def buy_params
     params.require(:buy).permit(:goods, :price, :image, :description).merge(user_id: current_user.id)
