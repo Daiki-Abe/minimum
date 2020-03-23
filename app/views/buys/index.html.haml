@@ -5,7 +5,9 @@
     .item-area__item.search-box__tag
       タグ検索
     .item-area__item.search-box__free
-      フリーワード検索
+      = form_with url: search_buys_path, local: true, method: :get, class: "search-form" do |f|
+        = f.text_field :keyword, class: "search-input", placeholder: "フリワード検索"
+        = f.submit "検索", class: "search-btn"
 
 .buy
   - @buys.each do |buy|
