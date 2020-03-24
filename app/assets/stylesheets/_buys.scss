@@ -308,3 +308,14 @@ td {
   text-align: center;
   color: white;
 }
+
+.destroy__title {
+  @include menu-title;
+}
+
+.destroy__subtitle {
+  height: 450px;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+}
