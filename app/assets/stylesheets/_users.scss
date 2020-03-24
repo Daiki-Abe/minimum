@@ -5,7 +5,6 @@ em {
 }
 
 .sign-up__form, .log-in__form, .user-edit__form {
-  // _buys.scssにて定義をしている
   @include menu-title;
 }
 
@@ -38,7 +37,7 @@ em {
   }
 
   &__btn:hover {
-    background-color: cornflowerblue;
+    background-color: $hover-color;
   }
 }
 

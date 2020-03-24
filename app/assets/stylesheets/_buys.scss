@@ -1,23 +1,34 @@
 // Place all the styles related to the buys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@mixin menu-title {
-  width: 600px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  border-radius: 5px;
-  font-size: 40px;
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: rgb(43, 53, 70);
-}
-
 @mixin form-item {
   width: 402px;
   margin: 0 auto;
   padding: 10px 16px 8px;
   margin-bottom: 30px;
   border-radius: 5px;
+}
+
+@mixin list {
+  width: 120px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  border: 0.3px solid white;
+}
+
+@mixin list-li {
+  display: block;
+  line-height: 45px;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 0.3px solid white;
+}
+
+@mixin list-a {
+  display: block;
+  text-decoration: none;
+  color: white;
 }
 
 .item-area {
@@ -53,7 +64,7 @@
 }
 
 .search-btn:hover {
-  background-color: cornflowerblue;
+  background-color: $hover-color;
 }
 
 .buy {
@@ -80,6 +91,30 @@
       .item-bar {
         margin-right: 10px;
         font-size: 30px;
+        position: relative;
+
+        ul.more-list {
+          @include list;
+          top: 25px;
+          right: -10px;
+          
+
+          li {
+            @include list-li;
+
+            a {
+              @include list-a;
+            }
+
+            &:hover {
+              background-color: gray;
+            }
+          }
+        }
+
+        &:hover ul.more-list {
+          display: block;
+        }
       }
     }
 
@@ -111,15 +146,39 @@
   &__image {
     height: 500px;
     width: 426px;
-    background-color: rgb(42, 57, 83);
     margin-top: 50px;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
+    background-color: rgb(42, 57, 83);
 
     &-bar {
+      width: 30px;
       margin-left: 20px;
       font-size: 40px;
+      position: relative;
+
+      ul.more-list {
+        @include list;
+        top: 45px;
+        left: -20px;
+
+        li {
+          @include list-li;
+
+          a {
+            @include list-a;
+          }
+
+          &:hover {
+            background-color: gray;
+          }
+        }
+      }
+
+      &:hover ul.more-list {
+        display: block;
+      }
     }
 
     &-icon {
@@ -141,13 +200,13 @@
 
 th {
   width: 130px;
-  background-color: rgb(43, 53, 70);
+  background-color: $th-color;
   border-bottom: solid 0.3px gray;
 }
 
 td {
   width: 320px;
-  background-color: rgb(69, 77, 90);
+  background-color: $td-color;
   padding-left: 15px;
   border-bottom: solid 0.3px gray;
 }
@@ -159,7 +218,7 @@ td {
     width: 896px;
     margin: 0 auto;
     margin-top: 30px;
-    background-color: rgb(43, 53, 70);
+    background-color: $th-color;
     font-size: 20px;
     text-align: center;
   }
@@ -168,7 +227,7 @@ td {
     width: 896px;
     margin: 0 auto;
     display: flex;
-    background-color: rgb(69, 77, 90);
+    background-color: $td-color;
     font-size: 20px;
     border-bottom: solid 0.3px gray;
   }
@@ -213,7 +272,7 @@ td {
     }
 
     &__icon:hover {
-      color: cornflowerblue;
+      color: $hover-color;
     }
 
     &__field {
@@ -235,7 +294,7 @@ td {
   }
 
   &-submit:hover {
-    background-color: cornflowerblue;
+    background-color: $hover-color;
   }
 }
 
