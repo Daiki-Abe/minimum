@@ -1,7 +1,13 @@
 .buy-show
   .buy-show__image{:style => "background-image: url(#{@buy.image.url})"}
     .buy-show__image-bar
-      = icon('fas fa-caret-down', class: "menu-icon")
+      - if user_signed_in?
+        = icon('fas fa-caret-down', class: "menu-icon")
+        %ul.more-list
+          %li
+            = link_to "EDIT", edit_buy_path(@buy.id), method: :get
+          %li
+            = link_to "DELETE", buy_path(@buy.id), method: :delete
     .buy-show__image-icon
       .buy-show__image-icon__hate
         = icon('fas fa-heart-broken', class: "hate-icon")
