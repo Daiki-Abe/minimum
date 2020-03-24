@@ -15,6 +15,14 @@ class BuysController < ApplicationController
     @buy = Buy.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+    buy = Buy.find(params[:id])
+    buy.update(buy_params)
+  end
+
   def destroy
     buy = Buy.find(params[:id])
     buy.destroy
