@@ -12,6 +12,7 @@ class BuysController < ApplicationController
   end
 
   def show
+    @buy = Buy.find(params[:id])
   end
 
   def search
