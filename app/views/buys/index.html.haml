@@ -17,6 +17,14 @@
           = buy.goods
         .buy__item-top.item-bar
           = icon('fas fa-caret-down', class: "menu-icon")
+          %ul.more-list
+            %li
+              = link_to "詳細", buy_path, method: :get
+            - if user_signed_in? && current_user.id == buy.user.id
+            %li
+              = link_to "編集", edit_buy_path, method: :get
+            %li
+              = link_to "削除", buy_path, method: :delete
       .buy__item-bottom
         .buy__item-bottom.item-icon
           .buy__item-bottom.item-icon__hate
