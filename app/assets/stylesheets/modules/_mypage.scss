@@ -27,7 +27,6 @@
     text-align: center;
 
     &__title {
-      // _buys.scssにて定義をしている
       @include menu-title;
     }
 

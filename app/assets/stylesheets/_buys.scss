@@ -1,17 +1,6 @@
 // Place all the styles related to the buys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@mixin menu-title {
-  width: 600px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  border-radius: 5px;
-  font-size: 40px;
-  text-align: center;
-  margin-bottom: 30px;
-  background-color: $th-color;
-}
-
 @mixin form-item {
   width: 402px;
   margin: 0 auto;
