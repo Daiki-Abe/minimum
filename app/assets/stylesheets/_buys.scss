@@ -1,9 +1,6 @@
 // Place all the styles related to the buys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$th-color: rgb(43, 53, 70);
-$td-color: rgb(69, 77, 90);
-
 @mixin menu-title {
   width: 600px;
   margin: 0 auto;
@@ -78,7 +75,7 @@ $td-color: rgb(69, 77, 90);
 }
 
 .search-btn:hover {
-  background-color: cornflowerblue;
+  background-color: $hover-color;
 }
 
 .buy {
@@ -286,7 +283,7 @@ td {
     }
 
     &__icon:hover {
-      color: cornflowerblue;
+      color: $hover-color;
     }
 
     &__field {
@@ -308,7 +305,7 @@ td {
   }
 
   &-submit:hover {
-    background-color: cornflowerblue;
+    background-color: $hover-color;
   }
 }
 
