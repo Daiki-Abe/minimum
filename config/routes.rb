@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 }
 
   root "buys#index"
-  resources :buys
+  resources :buys do
+    collection do
+      get 'search'
+    end
+  end
   resources :users, only: [:show]
 end

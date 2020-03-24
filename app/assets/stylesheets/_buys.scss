@@ -38,10 +38,22 @@
     display: flex;
 
     &__tag, &__free {
-      border: solid 1px white;
       width: 300px;
     }
   }
+}
+
+.search-input {
+  border-radius: 5px;
+  padding: 5px 8px 4px;
+}
+
+.search-btn {
+  border-radius: 5px;
+}
+
+.search-btn:hover {
+  background-color: cornflowerblue;
 }
 
 .buy {
