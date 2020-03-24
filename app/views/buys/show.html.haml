@@ -15,12 +15,12 @@
         %th.buy-show__item-bottom.show-writer
           投稿者
         %td.buy-show__item-bottom.show-writer
-          アーベ
+          = @buy.user.name
       %tr
         %th.buy-show__list-title
           購入品
         %td.buy-show__list-title
-          SARDのCD
+          = @buy.goods
       %tr
         %th.buy-show__list-tag
           タグ
@@ -30,12 +30,12 @@
         %th.buy-show__list-price
           購入金額
         %td.buy-show__list-price
-          3500円
+          = @buy.price
       %tr
         %th.buy-show__list-description
           購入した理由
         %td.buy-show__list-description
-          今後の生活に活力を与えてくれると感じたから。
+          = @buy.description
 
 .buy-comment
   .buy-comment__title
