@@ -80,6 +80,39 @@
       .item-bar {
         margin-right: 10px;
         font-size: 30px;
+        position: relative;
+
+        ul.more-list {
+          display: none;
+          position: absolute;
+          top: 25px;
+          right: -10px;
+          background-color: black;
+          border: 0.3px solid white;
+          width: 90px;
+
+          li {
+            display: block;
+            font-size: 20px;
+            text-align: center;
+            border-bottom: 0.3px solid white;
+            
+
+            a {
+              text-decoration: none;
+              display: block;
+              color: white;
+            }
+
+            &:hover {
+              background-color: gray;
+            }
+          }
+        }
+
+        &:hover ul.more-list {
+          display: block;
+        }
       }
     }
 
