@@ -15,6 +15,11 @@ class BuysController < ApplicationController
     @buy = Buy.find(params[:id])
   end
 
+  def destroy
+    buy = Buy.find(params[:id])
+    buy.destroy
+  end
+
   def search
     @buys = Buy.search(params[:keyword])
   end
