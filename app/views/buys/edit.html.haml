@@ -1,0 +1,17 @@
+.send-buy__page
+  = render "shared/mypage"
+  .send-buy__form
+    .send-buy__form.form__title
+      = icon("fas fa-shopping-cart", class: "shopping-icon")
+      購入品を編集する
+    .send-buy__form.form__buy
+      = form_for [@buy], html: {class: "form__area"} do |f|
+        .send__buy
+          = f.text_field :goods, class: "send__buy-goods", placeholder: "goods"
+          = f.text_field :price, class: "send__buy-price", placeholder: "price"
+          = f.label :image, class: "send__buy-image" do
+            = icon('fas', 'image', class: "send__buy-image__icon")
+            写真を選択してください
+            = f.file_field :image, class: "send__buy-image__field"
+          = f.text_area :description, class: "send__buy-description", rows: "10", placeholder: "description"
+          = f.submit "Send", class: "send__buy-submit"
