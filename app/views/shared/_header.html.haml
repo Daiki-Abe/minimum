@@ -9,8 +9,8 @@
     『断捨離』
   = link_to "『購入品』", buys_path, class: "menu-bar__item buy-list"
   - if user_signed_in?
-    = link_to "My page", user_path(current_user.id), class: "menu-bar__item mypage"
-    = link_to "Log out", destroy_user_session_path, method: :delete, class: "menu-bar__item logout"
+    = link_to "My page", user_path(current_user.id), class: "menu-bar__item Mypage"
+    = link_to "Log out", destroy_user_session_path, method: :delete, class: "menu-bar__item Logout"
   - else
-    = link_to "Sign up", new_user_registration_path, class: "menu-bar__item signup"
-    = link_to "Log in", new_user_session_path, class: "menu-bar__item login"
+    = link_to "Sign up", new_user_registration_path, class: "menu-bar__item Signup"
+    = link_to "Log in", new_user_session_path, class: "menu-bar__item Login"
