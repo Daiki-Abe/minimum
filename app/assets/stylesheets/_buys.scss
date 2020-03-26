@@ -257,7 +257,7 @@ td {
   }
 
   &-price {
-    height: 50px;
+    height: 40px;
     @include form-item;
   }
 
@@ -296,6 +296,14 @@ td {
   &-submit:hover {
     background-color: $hover-color;
   }
+}
+
+#buy_buy_tags_attributes_0_tag_id {
+  height: 62px;
+  width: 432px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 5px;
 }
 
 .buys-function__title {
