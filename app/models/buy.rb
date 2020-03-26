@@ -11,6 +11,8 @@ class Buy < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  accepts_nested_attributes_for :buy_tags, allow_destroy: true
+
   def self.search(search)
     if search
       Buy.where('goods LIKE(?)', "%#{search}%")

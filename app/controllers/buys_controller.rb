@@ -5,6 +5,7 @@ class BuysController < ApplicationController
 
   def new
     @buy = Buy.new
+    buy_tags = @buy.buy_tags.build
   end
 
   def create
@@ -35,6 +36,6 @@ class BuysController < ApplicationController
 
   private
   def buy_params
-    params.require(:buy).permit(:goods, :price, :image, :description).merge(user_id: current_user.id)
+    params.require(:buy).permit(:goods, :price, :image, :description, buy_tags_attributes: [:buy_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end
