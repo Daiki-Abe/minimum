@@ -18,6 +18,7 @@ class BuysController < ApplicationController
 
   def edit
     @buy = Buy.find(params[:id])
+    buy_tags = @buy.buy_tags
   end
 
   def update
