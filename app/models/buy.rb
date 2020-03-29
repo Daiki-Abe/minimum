@@ -3,6 +3,7 @@ class Buy < ApplicationRecord
   has_many :buy_tags, dependent: :destroy
   has_many :tags, through: :buy_tags
   has_many :comments
+  has_many :hates
 
   with_options presence: true do
     validates :goods
