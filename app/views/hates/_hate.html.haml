@@ -4,3 +4,5 @@
 - else
   = link_to buy_hates_path(buy), method: :post, remote: true do
     = icon('far fa-thumbs-down', class: "hate-icon")
+.item-icon__hate-count
+  = buy.hates.count
