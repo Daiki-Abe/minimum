@@ -29,14 +29,7 @@
       .buy__item-bottom
         .buy__item-bottom.item-icon
           .buy__item-bottom.item-icon__hate
-            - if buy.hate_user(current_user.id)
-              = link_to buy_hates_path(buy, buy.hate_user(current_user)), method: :delete, remote: true do
-              = icon('fas fa-heart-broken', class: "hate-icon")
-                ４
-            - else
-              = link_to buy_hates_path(buy), method: :post, remote: true do
-              = icon('fas fa-heart-broken', class: "hate-icon")
-                3
+            = render partial: "hates/hates", locals: {buy: buy}
           .buy__item-bottom.item-icon__comment
             = icon('fas fa-comment-alt', class: "comment-icon")
             .buy__item-bottom.item-icon__comment-count
