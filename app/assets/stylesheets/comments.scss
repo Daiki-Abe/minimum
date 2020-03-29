@@ -1,3 +1,24 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.buy-comment {
+  padding-bottom: 40px;
+
+  &__title {
+    width: 896px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: $th-color;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__list {
+    width: 896px;
+    margin: 0 auto;
+    display: flex;
+    background-color: $td-color;
+    font-size: 20px;
+    border-bottom: solid 0.3px gray;
+  }
+}
