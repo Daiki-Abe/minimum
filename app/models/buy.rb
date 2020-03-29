@@ -2,6 +2,7 @@ class Buy < ApplicationRecord
   belongs_to :user
   has_many :buy_tags, dependent: :destroy
   has_many :tags, through: :buy_tags
+  has_many :comments
 
   with_options presence: true do
     validates :goods
