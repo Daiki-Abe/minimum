@@ -28,7 +28,7 @@
                 = link_to "DELETE", buy_path(buy.id), method: :delete
       .buy__item-bottom
         .buy__item-bottom.item-icon
-          %div{:id => "hate-#{buy.id}", :class => "buy__item-bottom item-icon__hate"}
+          %div{id: "hate-#{buy.id}", class: "buy__item-bottom item-icon__hate"}
             = render partial: "hates/hate", locals: {buy: buy}
           .buy__item-bottom.item-icon__comment
             = link_to buy_path(buy.id), method: :get do
