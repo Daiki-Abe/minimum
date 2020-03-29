@@ -14,7 +14,7 @@
         ４
       .buy-show__image-icon__comment
         = icon('fas fa-comment-alt', class: "comment-icon")
-        ２
+        = @buy.comments.count
   .buy-show__list
     %table
       %tr
