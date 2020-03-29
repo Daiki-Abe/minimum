@@ -28,11 +28,11 @@
                 = link_to "DELETE", buy_path(buy.id), method: :delete
       .buy__item-bottom
         .buy__item-bottom.item-icon
-          .buy__item-bottom.item-icon__hate
-            = icon('fas fa-heart-broken', class: "hate-icon")
-            ４
+          %div{id: "hate-#{buy.id}", class: "buy__item-bottom item-icon__hate"}
+            = render partial: "hates/hate", locals: {buy: buy}
           .buy__item-bottom.item-icon__comment
-            = icon('fas fa-comment-alt', class: "comment-icon")
+            = link_to buy_path(buy.id), method: :get do
+              = icon('fas fa-comment-alt', class: "comment-icon")
             .buy__item-bottom.item-icon__comment-count
               = buy.comments.count
         .buy__item-bottom.item-writer
