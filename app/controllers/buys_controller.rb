@@ -1,10 +1,12 @@
 class BuysController < ApplicationController
   def index
     @buys = Buy.includes(:user)
+    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys : Buy.all
   end
 
   def new
     @buy = Buy.new
+    buy_tags = @buy.buy_tags.build
   end
 
   def create
@@ -17,6 +19,7 @@ class BuysController < ApplicationController
 
   def edit
     @buy = Buy.find(params[:id])
+    buy_tags = @buy.buy_tags
   end
 
   def update
@@ -35,6 +38,6 @@ class BuysController < ApplicationController
 
   private
   def buy_params
-    params.require(:buy).permit(:goods, :price, :image, :description).merge(user_id: current_user.id)
+    params.require(:buy).permit(:goods, :price, :image, :description, buy_tags_attributes: [:buy_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end

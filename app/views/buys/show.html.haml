@@ -31,7 +31,8 @@
         %th.buy-show__list-tag
           タグ
         %td.buy-show__list-tag
-          娯楽費
+          - @buy.tags.each do |tag|
+            = tag.name
       %tr
         %th.buy-show__list-price
           購入金額

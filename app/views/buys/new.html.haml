@@ -9,6 +9,8 @@
         .send__buy
           = f.text_field :goods, class: "send__buy-goods", placeholder: "購入品 （例）MacBook"
           = f.text_field :price, class: "send__buy-price", placeholder: "購入金額 （例）150000円"
+          = f.fields_for :buy_tags do |t|
+            = t.collection_select :tag_id, Tag.all, :id, :name, include_blank: '選択してください'
           = f.label :image, class: "send__buy-image" do
             = icon('fas', 'image', class: "send__buy-image__icon")
             写真を選択してください
