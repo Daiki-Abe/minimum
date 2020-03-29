@@ -1,0 +1,58 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.buy-comment {
+  padding-bottom: 40px;
+  width: 896px;
+  margin: 0 auto;
+  font-size: 20px;
+
+  &__send {
+    margin-top: 30px;
+    
+    &-form {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+
+    &-text {
+      height: 100px;
+      width: 800px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 10px 16px 8px;
+      border-radius: 5px;
+    }
+
+    &-submit {
+      height: 62px;
+      width: 834px;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    &-submit:hover {
+      background-color: $hover-color;
+    }
+  }
+  &__title {
+    margin-top: 30px;
+    background-color: $th-color;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    background-color: $td-color;
+    border-bottom: solid 0.3px gray;
+
+    &-writter {
+      min-width: 200px;
+    }
+
+    &-comment {
+      word-break : break-all;
+    }
+  }
+}

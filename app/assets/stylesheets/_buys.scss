@@ -136,6 +136,10 @@
         &__hate {
           margin-right: 15px;
         }
+
+        &__comment-count {
+          margin-left: 7px;
+        }
       }
 
       .item-writer {
@@ -216,28 +220,6 @@ td {
   background-color: $td-color;
   padding-left: 15px;
   border-bottom: solid 0.3px gray;
-}
-
-.buy-comment {
-  padding-bottom: 40px;
-
-  &__title {
-    width: 896px;
-    margin: 0 auto;
-    margin-top: 30px;
-    background-color: $th-color;
-    font-size: 20px;
-    text-align: center;
-  }
-
-  &__list {
-    width: 896px;
-    margin: 0 auto;
-    display: flex;
-    background-color: $td-color;
-    font-size: 20px;
-    border-bottom: solid 0.3px gray;
-  }
 }
 
 .send-buy__page {

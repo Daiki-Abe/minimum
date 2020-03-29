@@ -33,6 +33,7 @@
             ４
           .buy__item-bottom.item-icon__comment
             = icon('fas fa-comment-alt', class: "comment-icon")
-            ２
+            .buy__item-bottom.item-icon__comment-count
+              = buy.comments.count
         .buy__item-bottom.item-writer
           = buy.user.name

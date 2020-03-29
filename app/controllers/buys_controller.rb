@@ -15,6 +15,8 @@ class BuysController < ApplicationController
 
   def show
     @buy = Buy.find(params[:id])
+    @comment = Comment.new
+    @comments = @buy.comments.includes(:user)
   end
 
   def edit
