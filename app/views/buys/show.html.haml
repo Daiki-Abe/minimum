@@ -45,10 +45,10 @@
           = @buy.description
 
 .buy-comment
-  .buy-comment__send
-    - if current_user
-      = form_for [@buy, @comment], class: "buy-comment__send-form" do |f|
-        = f.text_area :text, class: "buy-comment__send-area", placeholder: "コメントをする"
+  - if current_user
+    .buy-comment__send
+      = form_for [@buy, @comment], html: {class: "buy-comment__send-form"} do |f|
+        = f.text_area :text, class: "buy-comment__send-text", placeholder: "コメントをする"
         = f.submit "SEND", class: "buy-comment__send-submit"
   .buy-comment__title
     〈コメント一覧〉

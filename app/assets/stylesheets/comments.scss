@@ -3,22 +3,48 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .buy-comment {
   padding-bottom: 40px;
+  width: 896px;
+  margin: 0 auto;
+  font-size: 20px;
 
+  &__send {
+    margin-top: 30px;
+    
+    &-form {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+
+    &-text {
+      height: 100px;
+      width: 800px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 10px 16px 8px;
+      border-radius: 5px;
+    }
+
+    &-submit {
+      height: 62px;
+      width: 834px;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    &-submit:hover {
+      background-color: $hover-color;
+    }
+  }
   &__title {
-    width: 896px;
-    margin: 0 auto;
     margin-top: 30px;
     background-color: $th-color;
-    font-size: 20px;
     text-align: center;
   }
 
   &__list {
-    width: 896px;
-    margin: 0 auto;
     display: flex;
     background-color: $td-color;
-    font-size: 20px;
     border-bottom: solid 0.3px gray;
   }
 }
