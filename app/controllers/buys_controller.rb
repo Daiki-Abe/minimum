@@ -1,6 +1,7 @@
 class BuysController < ApplicationController
   def index
     @buys = Buy.includes(:user)
+    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys : Buy.all
   end
 
   def new
