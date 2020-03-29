@@ -1,0 +1,2 @@
+class Hate < ApplicationRecord
+end
