@@ -47,8 +47,12 @@
     background-color: $td-color;
     border-bottom: solid 0.3px gray;
 
+    &-writter {
+      min-width: 200px;
+    }
+
     &-comment {
-      margin-left: 10px;
+      word-break : break-all;
     }
   }
 }
