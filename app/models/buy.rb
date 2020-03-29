@@ -23,8 +23,4 @@ class Buy < ApplicationRecord
     end
   end
 
-  def hate_user(id)
-    hates.find_by(user_id: id)
-  end
-
 end
