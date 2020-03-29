@@ -2,14 +2,12 @@ class HatesController < ApplicationController
   before_action :set_buy, only: [:create, :destroy]
 
   def create
-    @hate = current_user.hates.create(buy_id: params[:buy_id])
-    @buys = Buy.all
+    @hate = Hate.create(user_id: current_user.id, buy_id: @buy.id)
   end
 
   def destroy
-    hate = current_user.hates.find_by(buy_id: params[:buy_id])
-    hate.destroy
-    @buys = Buy.all
+    @hate = Hate.find_by(user_id: current_user.id, buy_id: @buy.id)
+    @hate.destroy
   end
 
   private
