@@ -46,5 +46,9 @@
     display: flex;
     background-color: $td-color;
     border-bottom: solid 0.3px gray;
+
+    &-comment {
+      margin-left: 10px;
+    }
   }
 }

@@ -52,14 +52,10 @@
         = f.submit "SEND", class: "buy-comment__send-submit"
   .buy-comment__title
     〈コメント一覧〉
-  .buy-comment__list
-    .buy-comment__list-writter
-      ゆうあ：
-    .buy-comment__list-comment
-      いい買い物だと思います。
-      
-  .buy-comment__list
-    .buy-comment__list-writter
-      杉ちゃん：
-    .buy-comment__list-comment
-      私も買いました。
+    - if @comments
+      - @comments.each do |comment|
+        .buy-comment__list
+          .buy-comment__list-writter
+            = "#{comment.user.name}:"
+          .buy-comment__list-comment
+            = comment.text
