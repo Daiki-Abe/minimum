@@ -1,6 +1,6 @@
 - if user_signed_in?
   - if Hate.find_by(user_id: current_user.id, buy_id: buy.id)
-    = link_to buy_hate_path(buy, buy_id: buy.id), method: :delete, remote: true do
+    = link_to buy_hate_path(buy, buy.id), method: :delete, remote: true do
       = icon('fas fa-thumbs-down', class: "hate-icon")
   - else
     = link_to buy_hates_path(buy), method: :post, remote: true do
