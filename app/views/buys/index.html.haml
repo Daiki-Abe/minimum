@@ -31,7 +31,10 @@
           %div{id: "hate-#{buy.id}", class: "buy__item-bottom item-icon__hate"}
             = render partial: "hates/hate", locals: {buy: buy}
           .buy__item-bottom.item-icon__comment
-            = link_to buy_path(buy.id), method: :get do
+            - if user_signed_in?
+              = link_to buy_path(buy.id), method: :get do
+                = icon('fas fa-comment-alt', class: "comment-icon")
+            - else
               = icon('fas fa-comment-alt', class: "comment-icon")
             .buy__item-bottom.item-icon__comment-count
               = buy.comments.count
