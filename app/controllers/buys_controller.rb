@@ -11,11 +11,8 @@ class BuysController < ApplicationController
 
   def create
     @buy = Buy.new(buy_params)
-    if @buy.save
-      redirect_to buys_path, method: :post
-    else
-      render :new
-    end
+    @buy.save
+    render :new unless @buy.save
   end
 
   def show
