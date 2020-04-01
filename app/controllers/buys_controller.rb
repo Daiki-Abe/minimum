@@ -10,7 +10,12 @@ class BuysController < ApplicationController
   end
 
   def create
-    Buy.create(buy_params)
+    @buy = Buy.new(buy_params)
+    if @buy.save
+      redirect_to buys_path, method: :post
+    else
+      render :new
+    end
   end
 
   def show
