@@ -1,18 +1,25 @@
 .user-edit__form
   会員情報の編集
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
   .field.user-name
     = f.label :name
     %em 任意
     %br/
     = f.text_field :name, autofocus: true, autocomplete: "name", class: "user__field"
+    - if resource.errors.any?
+      %ul
+        %li.error__messages-user
+          = resource.errors.full_messages_for(:name).first
 
   .field
     = f.label :email
     %em 任意
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email", class: "user__field"
+    - if resource.errors.any?
+      %ul
+        %li.error__messages-user
+          = resource.errors.full_messages_for(:email).first
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
@@ -22,6 +29,10 @@
     %em 任意
     %br/
     = f.password_field :password, autocomplete: "new-password", class: "user__field"
+    - if resource.errors.any?
+      %ul
+        %li.error__messages-user
+          = resource.errors.full_messages_for(:password).first
 
     %p.attention ※ パスワードの変更は任意です。
     
@@ -30,12 +41,20 @@
     %em 任意
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password", class: "user__field"
+    - if resource.errors.any?
+      %ul
+        %li.error__messages-user
+          = resource.errors.full_messages_for(:password_confirmation).first
 
   .field
     = f.label :current_password
     %em 必須
     %br/
     = f.password_field :current_password, autocomplete: "current-password", class: "user__field"
+    - if resource.errors.any?
+      %ul
+        %li.error__messages-user
+          = resource.errors.full_messages_for(:current_password).first
 
     %p.attention ※ 現在のパスワードの入力は必須です。
 
