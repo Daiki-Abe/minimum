@@ -299,6 +299,23 @@ td {
   border-radius: 5px;
 }
 
+.field_with_errors {
+  display: contents;
+
+  input {
+    border-color: red;
+  }
+
+  textarea {
+    border-color: red;
+  }
+}
+
+li.error__messages {
+  margin-left: 81px;
+  color: red;
+}
+
 .buys-function__title {
   @include menu-title;
 }

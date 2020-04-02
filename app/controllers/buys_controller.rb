@@ -10,7 +10,9 @@ class BuysController < ApplicationController
   end
 
   def create
-    Buy.create(buy_params)
+    @buy = Buy.new(buy_params)
+    @buy.save
+    render :new unless @buy.save
   end
 
   def show
@@ -25,8 +27,9 @@ class BuysController < ApplicationController
   end
 
   def update
-    buy = Buy.find(params[:id])
-    buy.update(buy_params)
+    @buy = Buy.find(params[:id])
+    @buy.update(buy_params)
+    render :edit unless @buy.update(buy_params)
   end
 
   def destroy
