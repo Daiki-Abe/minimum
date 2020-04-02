@@ -38,3 +38,9 @@ a {
 	  transition-duration: 0.3s;
   }
 }
+
+.alert, .notice {
+  text-align: center;
+  font-size: 20px;
+  color: red;
+}
