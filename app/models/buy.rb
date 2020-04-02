@@ -11,6 +11,8 @@ class Buy < ApplicationRecord
     validates :description
   end
 
+  validates :price, numericality: {only_integer: true, message: "は半角数字で入力してください"}
+
   mount_uploader :image, ImageUploader
 
   accepts_nested_attributes_for :buy_tags, allow_destroy: true
