@@ -16,7 +16,7 @@
             %ul
               %li.error__messages
                 = @buy.errors.full_messages_for(:price).first
-          = f.text_field :price, class: "send__buy-price", placeholder: "購入金額 （例）150000円"
+          = f.text_field :price, class: "send__buy-price", placeholder: "購入金額 （例）150000"
           - if @buy.errors.any?
             %ul
               %li.error__messages
