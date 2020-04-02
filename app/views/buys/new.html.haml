@@ -17,6 +17,10 @@
               %li.error__messages
                 = @buy.errors.full_messages_for(:price).first
           = f.text_field :price, class: "send__buy-price", placeholder: "購入金額 （例）150000円"
+          - if @buy.errors.any?
+            %ul
+              %li.error__messages
+                = @buy.errors.full_messages_for(:buy_tags).first
           = f.fields_for :buy_tags do |t|
             = t.collection_select :tag_id, Tag.all, :id, :name, include_blank: '選択してください'
           = f.label :image, class: "send__buy-image" do

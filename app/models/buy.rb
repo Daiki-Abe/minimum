@@ -14,6 +14,8 @@ class Buy < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   accepts_nested_attributes_for :buy_tags, allow_destroy: true
+  validates_associated :buy_tags, message: "を選択してください"
+  validates :buy_tags, presence: true
 
   def self.search(search)
     if search
