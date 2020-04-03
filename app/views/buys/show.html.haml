@@ -47,15 +47,16 @@
 .buy-comment
   - if current_user
     .buy-comment__send
-      = form_for [@buy, @comment], html: {class: "buy-comment__send-form"} do |f|
+      = form_for [@buy, @comment], html: {class: "buy-comment__send-form", id: "buy-comment__send-form"} do |f|
         = f.text_area :text, class: "buy-comment__send-text", placeholder: "コメントをする"
         = f.submit "SEND", class: "buy-comment__send-submit"
   .buy-comment__title
     〈コメント一覧〉
     - if @comments
-      - @comments.each do |comment|
-        .buy-comment__list
-          .buy-comment__list-writter
-            = "#{comment.user.name}:"
-          .buy-comment__list-comment
-            = comment.text
+      .ajax
+        - @comments.each do |comment|
+          .buy-comment__list
+            .buy-comment__list-writter
+              = "#{comment.user.name}:"
+            .buy-comment__list-comment
+              = comment.text
