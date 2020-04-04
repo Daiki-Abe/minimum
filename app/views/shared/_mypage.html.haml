@@ -12,4 +12,4 @@
   .mypage__side-area__item.setting-user
     =link_to "Edit account", edit_user_registration_path
   .mypage__side-area__item.delete-user
-    Leave Minimum
+    = link_to "Leave Minimum", user_registration_path, method: :delete

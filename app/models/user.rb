@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  has_many :buys
-  has_many :comments
+  has_many :buys, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :hates, dependent: :destroy
 
   def self.search(search)
