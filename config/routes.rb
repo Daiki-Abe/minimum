@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     member do
       get 'mybuy'
-    end
-    collection do
       get 'search'
     end
   end
