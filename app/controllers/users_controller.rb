@@ -8,4 +8,8 @@ class UsersController < ApplicationController
     @buys = Buy.includes(:user)
     @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys : Buy.all
   end
+
+  def search
+    @buys = Buy.search(params[:keyword])
+  end
 end

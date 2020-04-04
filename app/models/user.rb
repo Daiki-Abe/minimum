@@ -8,4 +8,12 @@ class User < ApplicationRecord
   has_many :buys
   has_many :comments
   has_many :hates, dependent: :destroy
+
+  def self.search(search)
+    if search
+      Buy.where('goods LIKE(?)', "%#{search}%")
+    else
+      Buy.all
+    end
+  end
 end

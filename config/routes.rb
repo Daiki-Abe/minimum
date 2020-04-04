@@ -16,5 +16,8 @@ Rails.application.routes.draw do
     member do
       get 'mybuy'
     end
+    collection do
+      get 'search'
+    end
   end
 end
