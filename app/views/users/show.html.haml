@@ -2,7 +2,7 @@
   = render "shared/mypage"
   .mypage__main-area
     .mypage__main-area__title
-      = "#{@user.name}のMinimum"
+      = "#{@user.name}さん"
     .mypage__main-area__discard
       = icon("fas fa-trash-alt", class: "garbage-icon")
       今までの断捨離：15
@@ -11,7 +11,9 @@
       今までのいいね：30
     .mypage__main-area__buy
       = icon("fas fa-shopping-cart", class: "shopping-icon")
-      今までの購入品：10
+      今までの購入品：
+      = @user.buys.count
     .mypage__main-area__hate
       = icon('fas fa-heart-broken', class: "hate-icon")
-      今までのだめね：18
+      今までのだめね：
+      = @hate_count

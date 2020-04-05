@@ -1,4 +1,5 @@
 class BuysController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
   def index
     @buys = Buy.includes(:user)
     @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys : Buy.all
@@ -44,5 +45,9 @@ class BuysController < ApplicationController
   private
   def buy_params
     params.require(:buy).permit(:goods, :price, :image, :description, buy_tags_attributes: [:buy_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in? 
   end
 end

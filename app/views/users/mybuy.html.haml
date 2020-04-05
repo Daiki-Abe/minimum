@@ -1,0 +1,43 @@
+.item-area
+  .item-area__item.title-box
+    = "#{@user.name}さんの『購入品』一覧"
+  .item-area__item.search-box
+    .item-area__item.search-box__tag
+      = form_with url: mybuy_user_path(current_user.id), local: true, method: :get, class: "search-tag" do |f|
+        = select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), {prompt: "タグで絞り込み検索", onchange: 'submit(this.form);'}
+    .item-area__item.search-box__free
+      = form_with url: search_user_path(current_user.id), local: true, method: :get, class: "search-form" do |f|
+        = f.text_field :keyword, class: "search-input", placeholder: "フリーワード検索"
+        = f.submit "検索", class: "search-btn"
+
+.buy
+  - @buys.each do |buy|
+    - if buy.user_id == @user.id
+      .buy__item{:style => "background-image: url(#{buy.image.url})"}
+        .buy__item-top
+          .buy__item-top.item-title
+            = buy.goods
+          .buy__item-top.item-bar
+            = icon('fas fa-caret-down', class: "menu-icon")
+            %ul.more-list
+              %li
+                = link_to "SHOW", buy_path(buy.id), method: :get
+              - if user_signed_in? && current_user.id == buy.user_id
+                %li
+                  = link_to "EDIT", edit_buy_path(buy.id), method: :get
+                %li
+                  = link_to "DELETE", buy_path(buy.id), method: :delete
+        .buy__item-bottom
+          .buy__item-bottom.item-icon
+            %div{id: "hate-#{buy.id}", class: "buy__item-bottom item-icon__hate"}
+              = render partial: "hates/hate", locals: {buy: buy}
+            .buy__item-bottom.item-icon__comment
+              - if user_signed_in?
+                = link_to buy_path(buy.id), method: :get do
+                  = icon('fas fa-comment-alt', class: "comment-icon")
+              - else
+                = icon('fas fa-comment-alt', class: "comment-icon")
+              .buy__item-bottom.item-icon__comment-count
+                = buy.comments.count
+          .buy__item-bottom.item-writer
+            = buy.user.name
