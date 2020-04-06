@@ -1,0 +1,2 @@
+class DumpTag < ApplicationRecord
+end
