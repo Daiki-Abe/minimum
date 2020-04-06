@@ -1,8 +1,7 @@
 class BuysController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   def index
-    @buys = Buy.includes(:user)
-    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys : Buy.all
+    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys.includes(:user).order("created_at DESC").page(params[:page]).per(18) : Buy.includes(:user).order("created_at DESC").page(params[:page]).per(18)
   end
 
   def new
@@ -39,7 +38,7 @@ class BuysController < ApplicationController
   end
 
   def search
-    @buys = Buy.search(params[:keyword])
+    @buys = Buy.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(18)
   end
 
   private

@@ -74,6 +74,23 @@
   background-color: $hover-color;
 }
 
+.pagination {
+  width: 800px;
+  padding: 30px 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+
+  .page.current {
+    margin: 0 10px;
+  }
+
+  a {
+    margin: 0 10px;
+  }
+}
+
 .buy {
   display: flex;
   flex-wrap: wrap;
