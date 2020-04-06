@@ -11,12 +11,11 @@ class UsersController < ApplicationController
 
   def mybuy
     @user = User.find(params[:id])
-    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys.includes(:user).order("created_at DESC").page(params[:page]).per(18) : Buy.includes(:user).order("created_at DESC").page(params[:page]).per(18)
+    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys.includes(:user) : Buy.includes(:user)
   end
 
   def search
     @user = User.find(params[:id])
     @buys = Buy.search(params[:keyword])
-    @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys : Buy.all
   end
 end
