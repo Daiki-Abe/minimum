@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_075415) do
+ActiveRecord::Schema.define(version: 2020_04_06_230758) do
 
   create_table "buy_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "buy_id"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 2020_03_29_075415) do
     t.datetime "updated_at", null: false
     t.index ["buy_id"], name: "index_comments_on_buy_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "dumps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "goods", null: false
+    t.string "price", null: false
+    t.string "image"
+    t.text "description", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dumps_on_user_id"
   end
 
   create_table "hates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_075415) do
   add_foreign_key "buys", "users"
   add_foreign_key "comments", "buys"
   add_foreign_key "comments", "users"
+  add_foreign_key "dumps", "users"
   add_foreign_key "hates", "buys"
   add_foreign_key "hates", "users"
 end
