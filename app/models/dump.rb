@@ -8,5 +8,7 @@ class Dump < ApplicationRecord
   end
 
   validates :price, numericality: {only_integer: true, message: "は半角数字で入力してください"}
+
+  mount_uploader :image, ImageUploader
   
 end
