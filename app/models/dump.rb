@@ -1,5 +1,7 @@
 class Dump < ApplicationRecord
   belongs_to :user
+  has_many :dump_tags, dependent: :destroy
+  has_many :tags, through: :dump_tags
 
   with_options presence: true do
     validates :goods
@@ -10,5 +12,9 @@ class Dump < ApplicationRecord
   validates :price, numericality: {only_integer: true, message: "は半角数字で入力してください"}
 
   mount_uploader :image, ImageUploader
+
+  accepts_nested_attributes_for :dump_tags, allow_destroy: true
+  validates_associated :dump_tags, message: "を選択してください"
+  validates :dump_tags, presence: true
   
 end
