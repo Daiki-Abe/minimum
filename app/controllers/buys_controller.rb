@@ -38,7 +38,7 @@ class BuysController < ApplicationController
   end
 
   def search
-    @buys = Buy.search(params[:keyword])
+    @buys = Buy.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(18)
   end
 
   private
