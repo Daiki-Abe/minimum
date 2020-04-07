@@ -3,6 +3,7 @@ class Dump < ApplicationRecord
   has_many :dump_tags, dependent: :destroy
   has_many :tags, through: :dump_tags
   has_many :dump_comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   with_options presence: true do
     validates :goods
