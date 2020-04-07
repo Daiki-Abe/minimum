@@ -18,6 +18,11 @@ class DumpsController < ApplicationController
     @dump = Dump.find(params[:id])
   end
 
+  def destroy
+    @dump = Dump.find(params[:id])
+    @dump.destroy
+  end
+
   def search
     @dumps = Dump.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(18)
   end
