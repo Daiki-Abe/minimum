@@ -4,7 +4,7 @@
   .mypage__side-area__item.my-discard
     MyList『断捨離』
   .mypage__side-area__item.send-discard
-    Send『断捨離』
+    = link_to "Send『断捨離』", new_dump_path
   .mypage__side-area__item.my-buy
     = link_to "My『購入品』", mybuy_user_path(current_user.id)
   .mypage__side-area__item.send-buy
