@@ -18,6 +18,17 @@ class DumpsController < ApplicationController
     @dump = Dump.find(params[:id])
   end
 
+  def edit
+    @dump = Dump.find(params[:id])
+    dump_tags = @dump.dump_tags
+  end
+
+  def update
+    @dump = Dump.find(params[:id])
+    @dump.update(dump_params)
+    render :edit unless @dump.update(dump_params)
+  end
+
   def destroy
     dump = Dump.find(params[:id])
     dump.destroy
