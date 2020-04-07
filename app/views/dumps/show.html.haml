@@ -1,0 +1,45 @@
+.buy-show
+  .buy-show__image{:style => "background-image: url(#{@dump.image.url})"}
+    .buy-show__image-bar
+      = icon('fas fa-caret-down', class: "menu-icon")
+      - if user_signed_in?
+        %ul.more-list
+          %li
+            = link_to "EDIT", edit_buy_path(@dump.id), method: :get
+          %li
+            = link_to "DELETE", buy_path(@dump.id), method: :delete
+    .buy-show__image-icon
+      .buy-show__image-icon__hate
+        = icon('fas fa-heart-broken', class: "hate-icon")
+        ４
+      .buy-show__image-icon__comment
+        = icon('fas fa-comment-alt', class: "comment-icon")
+        4
+  .buy-show__list
+    %table
+      %tr
+        %th.buy-show__item-bottom.show-writer
+          投稿者
+        %td.buy-show__item-bottom.show-writer
+          = @dump.user.name
+      %tr
+        %th.buy-show__list-title
+          購入品
+        %td.buy-show__list-title
+          = @dump.goods
+      %tr
+        %th.buy-show__list-tag
+          タグ
+        %td.buy-show__list-tag
+          - @dump.tags.each do |tag|
+            = tag.name
+      %tr
+        %th.buy-show__list-price
+          購入金額
+        %td.buy-show__list-price
+          = "#{@dump.price}円"
+      %tr
+        %th.buy-show__list-description
+          購入した理由
+        %td.buy-show__list-description
+          = @dump.description
