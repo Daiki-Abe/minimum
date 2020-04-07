@@ -1,4 +1,5 @@
 class DumpsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
   def index
     @dumps = params[:tag_id].present? ? Tag.find(params[:tag_id]).dumps.includes(:user).order("created_at DESC").page(params[:page]).per(18) : Dump.includes(:user).order("created_at DESC").page(params[:page]).per(18)
   end
@@ -42,5 +43,9 @@ class DumpsController < ApplicationController
 
   def dump_params
     params.require(:dump).permit(:goods, :price, :image, :description, dump_tags_attributes: [:dump_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in? 
   end
 end
