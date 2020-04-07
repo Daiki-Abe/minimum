@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   root "buys#index"
 
-  resources :dumps
+  resources :dumps do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :buys do
     collection do
