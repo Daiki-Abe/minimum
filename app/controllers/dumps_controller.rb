@@ -19,8 +19,8 @@ class DumpsController < ApplicationController
   end
 
   def destroy
-    @dump = Dump.find(params[:id])
-    @dump.destroy
+    dump = Dump.find(params[:id])
+    dump.destroy
   end
 
   def search
