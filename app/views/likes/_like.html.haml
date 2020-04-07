@@ -1,0 +1,13 @@
+- if user_signed_in?
+  - if Like.find_by(user_id: current_user.id, dump_id: dump.id)
+    = link_to dump_like_path(dump, dump.id), method: :delete, remote: true do
+      = icon('fas fa-thumbs-up', class: "hate-icon")
+  - else
+    = link_to dump_likes_path(dump), method: :post, remote: true do
+      = icon('far fa-thumbs-up', class: "hate-icon")
+  .item-icon__hate-count
+    = dump.likes.count
+- else
+  = icon('fas fa-thumbs-up', class: "hate-icon")
+  .item-icon__hate-count
+    = dump.likes.count

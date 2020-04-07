@@ -5,15 +5,17 @@
       = "#{@user.name}さん"
     .mypage__main-area__discard
       = icon("fas fa-trash-alt", class: "garbage-icon")
-      今までの断捨離：15
+      今までの断捨離：
+      = @user.dumps.count
     .mypage__main-area__like
-      = icon("fas fa-heart", class: "heart-icon")
-      今までのいいね：30
+      = icon("fas fa-thumbs-up", class: "heart-icon")
+      今までのいいね：
+      = @dump_count
     .mypage__main-area__buy
       = icon("fas fa-shopping-cart", class: "shopping-icon")
       今までの購入品：
       = @user.buys.count
     .mypage__main-area__hate
-      = icon('fas fa-heart-broken', class: "hate-icon")
+      = icon('fas fa-thumbs-down', class: "hate-icon")
       今までのだめね：
       = @hate_count
