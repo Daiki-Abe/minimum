@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :dump_comments, only: [:create]
   end
 
   resources :buys do
