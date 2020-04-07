@@ -14,6 +14,10 @@ class DumpsController < ApplicationController
     render :new unless @dump.save
   end
 
+  def show
+    @dump = Dump.find(params[:id])
+  end
+
   def search
     @dumps = Dump.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(18)
   end
