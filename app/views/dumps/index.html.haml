@@ -35,7 +35,7 @@
             - else
               = icon('fas fa-comment-alt', class: "comment-icon")
             .buy__item-bottom.item-icon__comment-count
-              4
+              = dump.dump_comments.count
         .buy__item-bottom.item-writer
           = dump.user.name
 = paginate(@dumps)
