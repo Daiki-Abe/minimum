@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 }
 
   root "buys#index"
+
+  resources :dumps
+
   resources :buys do
     collection do
       get 'search'
