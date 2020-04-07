@@ -17,8 +17,8 @@ class DumpsController < ApplicationController
 
   def show
     @dump = Dump.find(params[:id])
-    @comment = Dump_comment.new
-    @comments = @dump.comments.includes(:user)
+    @comment = DumpComment.new
+    @comments = @dump.dump_comments.includes(:user)
   end
 
   def edit

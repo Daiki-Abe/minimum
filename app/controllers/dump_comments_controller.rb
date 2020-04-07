@@ -1,7 +1,7 @@
 class DumpCommentsController < ApplicationController
   before_action :move_to_index, only: [:create]
   def create
-    @comment = Dump_comment.create(comment_params)
+    @comment = DumpComment.create(comment_params)
     respond_to do |format|
       format.html {redirect_to "/dumps/#{@comment.buy.id}"}
       format.json 
