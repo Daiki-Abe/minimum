@@ -3,9 +3,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
 }
 
-  root "buys#index"
+  root "dumps#index"
 
-  resources :dumps
+  resources :dumps do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :buys do
     collection do

@@ -5,8 +5,7 @@
     それって、本当に必要なの？
 
 .menu-bar
-  .menu-bar__item.discard-list
-    『断捨離』
+  = link_to "『断捨離』", dumps_path, class: "menu-bar__item discard-list"
   = link_to "『購入品』", buys_path, class: "menu-bar__item buy-list"
   - if user_signed_in?
     = link_to "My page", user_path(current_user.id), class: "menu-bar__item Mypage"
