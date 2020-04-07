@@ -4,7 +4,8 @@ class DumpCommentsController < ApplicationController
     @comment = DumpComment.create(comment_params)
     respond_to do |format|
       format.html {redirect_to "/dumps/#{@comment.buy.id}"}
-      format.json 
+      format.json
+    end
   end
 
   private
