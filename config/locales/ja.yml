@@ -12,6 +12,10 @@
           goods: "購入品"
           price: "購入金額"
           description: "購入理由"
+        dump:
+          goods: "断捨離品"
+          price:  "購入時の金額"
+          description:  "断捨離した理由"
     date:
       abbr_day_names:
       - 日
