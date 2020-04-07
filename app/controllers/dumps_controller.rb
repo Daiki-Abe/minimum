@@ -1,6 +1,7 @@
 class DumpsController < ApplicationController
   def new
     @dump = Dump.new
+    dump_tags = @dump.dump_tags.build
   end
 
   def create
