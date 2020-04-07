@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_234619) do
+ActiveRecord::Schema.define(version: 2020_04_07_015658) do
 
   create_table "buy_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "buy_id"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2020_04_06_234619) do
     t.datetime "updated_at", null: false
     t.index ["buy_id"], name: "index_comments_on_buy_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "dump_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "user_id"
+    t.bigint "dump_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dump_id"], name: "index_dump_comments_on_dump_id"
+    t.index ["user_id"], name: "index_dump_comments_on_user_id"
   end
 
   create_table "dump_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -96,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_234619) do
   add_foreign_key "buys", "users"
   add_foreign_key "comments", "buys"
   add_foreign_key "comments", "users"
+  add_foreign_key "dump_comments", "dumps"
+  add_foreign_key "dump_comments", "users"
   add_foreign_key "dump_tags", "dumps"
   add_foreign_key "dump_tags", "tags"
   add_foreign_key "dumps", "users"

@@ -1,0 +1,2 @@
+module DumpCommentsHelper
+end

@@ -14,7 +14,7 @@
         ４
       .buy-show__image-icon__comment
         = icon('fas fa-comment-alt', class: "comment-icon")
-        4
+        = @dump.dump_comments.count
   .buy-show__list
     %table
       %tr
@@ -43,3 +43,20 @@
           購入した理由
         %td.buy-show__list-description
           = @dump.description
+
+.buy-comment
+  - if current_user
+    .buy-comment__send
+      = form_for [@dump, @comment], html: {class: "buy-comment__send-form", id: "dump-comment__send-form"} do |f|
+        = f.text_area :text, class: "buy-comment__send-text", placeholder: "コメントをする"
+        = f.submit "SEND", class: "buy-comment__send-submit"
+  .buy-comment__title
+    〈コメント一覧〉
+    - if @comments
+      .ajax
+        - @comments.each do |comment|
+          .buy-comment__list
+            .buy-comment__list-writter
+              = "#{comment.user.name}:"
+            .buy-comment__list-comment
+              = comment.text
