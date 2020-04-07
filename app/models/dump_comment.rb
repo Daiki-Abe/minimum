@@ -1,0 +1,2 @@
+class DumpComment < ApplicationRecord
+end
