@@ -13,4 +13,5 @@ class DumpsController < ApplicationController
 
   def dump_params
     params.require(:dump).permit(:goods, :price, :image, :description, dump_tags_attributes: [:dump_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
+  end
 end
