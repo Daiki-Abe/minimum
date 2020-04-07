@@ -10,8 +10,8 @@
             = link_to "DELETE", buy_path(@buy.id), method: :delete
     .buy-show__image-icon
       .buy-show__image-icon__hate
-        = icon('fas fa-heart-broken', class: "hate-icon")
-        ４
+        %div{id: "hate-#{@buy.id}", class: "buy__item-bottom item-icon__hate"}
+          = render partial: "hates/hate", locals: {buy: @buy}
       .buy-show__image-icon__comment
         = icon('fas fa-comment-alt', class: "comment-icon")
         = @buy.comments.count
