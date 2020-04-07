@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :buys, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :hates, dependent: :destroy
+  has_many :dumps, dependent: :destroy
   has_many :dump_comments, dependent: :destroy
 
   def self.search(search)
