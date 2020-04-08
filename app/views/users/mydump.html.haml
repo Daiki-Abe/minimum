@@ -12,31 +12,32 @@
 
 .buy
   - @dumps.each do |dump|
-    .buy__item{:style => "background-image: url(#{dump.image.url})"}
-      .buy__item-top
-        .buy__item-top.item-title
-          = dump.goods
-        .buy__item-top.item-bar
-          = icon('fas fa-caret-down', class: "menu-icon")
-          %ul.more-list
-            %li
-              = link_to "SHOW", dump_path(dump.id), method: :get
-            - if user_signed_in? && current_user.id == dump.user_id
+    - if dump.user_id == @user.id
+      .buy__item{:style => "background-image: url(#{dump.image.url})"}
+        .buy__item-top
+          .buy__item-top.item-title
+            = dump.goods
+          .buy__item-top.item-bar
+            = icon('fas fa-caret-down', class: "menu-icon")
+            %ul.more-list
               %li
-                = link_to "EDIT", edit_dump_path(dump.id), method: :get
-              %li
-                = link_to "DELETE", dump_path(dump.id), method: :delete
-      .buy__item-bottom
-        .buy__item-bottom.item-icon
-          %div{id: "hate-#{dump.id}", class: "buy__item-bottom item-icon__hate"}
-            = render partial: "likes/like", locals: {dump: dump}
-          .buy__item-bottom.item-icon__comment
-            - if user_signed_in?
-              = link_to dump_path(dump.id), method: :get do
+                = link_to "SHOW", dump_path(dump.id), method: :get
+              - if user_signed_in? && current_user.id == dump.user_id
+                %li
+                  = link_to "EDIT", edit_dump_path(dump.id), method: :get
+                %li
+                  = link_to "DELETE", dump_path(dump.id), method: :delete
+        .buy__item-bottom
+          .buy__item-bottom.item-icon
+            %div{id: "hate-#{dump.id}", class: "buy__item-bottom item-icon__hate"}
+              = render partial: "likes/like", locals: {dump: dump}
+            .buy__item-bottom.item-icon__comment
+              - if user_signed_in?
+                = link_to dump_path(dump.id), method: :get do
+                  = icon('fas fa-comment-alt', class: "comment-icon")
+              - else
                 = icon('fas fa-comment-alt', class: "comment-icon")
-            - else
-              = icon('fas fa-comment-alt', class: "comment-icon")
-            .buy__item-bottom.item-icon__comment-count
-              = dump.dump_comments.count
-        .buy__item-bottom.item-writer
-          = dump.user.name
+              .buy__item-bottom.item-icon__comment-count
+                = dump.dump_comments.count
+          .buy__item-bottom.item-writer
+            = dump.user.name
