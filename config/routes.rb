@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     member do
       get 'mydump'
       get 'mybuy'
+      get 'dumpsearch'
       get 'search'
     end
   end
