@@ -2,7 +2,7 @@
   .mypage__side-area__title
     My menu
   .mypage__side-area__item.my-discard
-    MyList『断捨離』
+    = link_to "My『断捨離』", mydump_user_path(current_user.id)
   .mypage__side-area__item.send-discard
     = link_to "Send『断捨離』", new_dump_path
   .mypage__side-area__item.my-buy

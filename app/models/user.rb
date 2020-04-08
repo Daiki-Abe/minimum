@@ -12,11 +12,4 @@ class User < ApplicationRecord
   has_many :dump_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  def self.search(search)
-    if search
-      Buy.where('goods LIKE(?)', "%#{search}%")
-    else
-      Buy.all
-    end
-  end
 end

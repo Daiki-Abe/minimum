@@ -17,9 +17,19 @@ class UsersController < ApplicationController
     @dump_count = Like.where(dump_id: dump_id).count
   end
 
+  def mydump
+    @user = User.find(params[:id])
+    @dumps = params[:tag_id].present? ? Tag.find(params[:tag_id]).dumps.includes(:user) : Dump.includes(:user)
+  end
+
   def mybuy
     @user = User.find(params[:id])
     @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys.includes(:user) : Buy.includes(:user)
+  end
+
+  def dumpsearch
+    @user = User.find(params[:id])
+    @dumps = Dump.search(params[:keyword])
   end
 
   def search
