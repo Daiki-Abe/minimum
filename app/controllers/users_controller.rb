@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def dumpsearch
     @user = User.find(params[:id])
-    @dumps = Dump.dumpsearch(params[:keyword])
+    @dumps = Dump.search(params[:keyword])
   end
 
   def search
