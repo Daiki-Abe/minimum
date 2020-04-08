@@ -1,0 +1,42 @@
+.item-area
+  .item-area__item.title-box
+    = "#{@user.name}さんの『断捨離』一覧"
+  .item-area__item.search-box
+    .item-area__item.search-box__tag
+      = form_with url: dumps_path, local: true, method: :get, class: "search-tag" do |f|
+        = select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), {prompt: "タグで絞り込み検索", onchange: 'submit(this.form);'}
+    .item-area__item.search-box__free
+      = form_with url: search_dumps_path, local: true, method: :get, class: "search-form" do |f|
+        = f.text_field :keyword, class: "search-input", placeholder: "フリーワード検索"
+        = f.submit "検索", class: "search-btn"
+
+.buy
+  - @dumps.each do |dump|
+    .buy__item{:style => "background-image: url(#{dump.image.url})"}
+      .buy__item-top
+        .buy__item-top.item-title
+          = dump.goods
+        .buy__item-top.item-bar
+          = icon('fas fa-caret-down', class: "menu-icon")
+          %ul.more-list
+            %li
+              = link_to "SHOW", dump_path(dump.id), method: :get
+            - if user_signed_in? && current_user.id == dump.user_id
+              %li
+                = link_to "EDIT", edit_dump_path(dump.id), method: :get
+              %li
+                = link_to "DELETE", dump_path(dump.id), method: :delete
+      .buy__item-bottom
+        .buy__item-bottom.item-icon
+          %div{id: "hate-#{dump.id}", class: "buy__item-bottom item-icon__hate"}
+            = render partial: "likes/like", locals: {dump: dump}
+          .buy__item-bottom.item-icon__comment
+            - if user_signed_in?
+              = link_to dump_path(dump.id), method: :get do
+                = icon('fas fa-comment-alt', class: "comment-icon")
+            - else
+              = icon('fas fa-comment-alt', class: "comment-icon")
+            .buy__item-bottom.item-icon__comment-count
+              = dump.dump_comments.count
+        .buy__item-bottom.item-writer
+          = dump.user.name
