@@ -28,6 +28,8 @@
                 = link_to "DELETE", dump_path(dump.id), method: :delete
       .buy__item-bottom
         .buy__item-bottom.item-icon
+          %div{id: "hate-#{dump.id}", class: "buy__item-bottom item-icon__hate"}
+            = render partial: "likes/like", locals: {dump: dump}
           .buy__item-bottom.item-icon__comment
             - if user_signed_in?
               = link_to dump_path(dump.id), method: :get do
@@ -35,7 +37,7 @@
             - else
               = icon('fas fa-comment-alt', class: "comment-icon")
             .buy__item-bottom.item-icon__comment-count
-              4
+              = dump.dump_comments.count
         .buy__item-bottom.item-writer
           = dump.user.name
 = paginate(@dumps)
