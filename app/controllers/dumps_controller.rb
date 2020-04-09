@@ -1,5 +1,7 @@
 class DumpsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_dump, only: [:show, :edit, :update, :destroy]
+  
   def index
     @dumps = params[:tag_id].present? ? Tag.find(params[:tag_id]).dumps.includes(:user).order("created_at DESC").page(params[:page]).per(18) : Dump.includes(:user).order("created_at DESC").page(params[:page]).per(18)
   end
@@ -16,25 +18,21 @@ class DumpsController < ApplicationController
   end
 
   def show
-    @dump = Dump.find(params[:id])
     @comment = DumpComment.new
     @comments = @dump.dump_comments.includes(:user)
   end
 
   def edit
-    @dump = Dump.find(params[:id])
     dump_tags = @dump.dump_tags
   end
 
   def update
-    @dump = Dump.find(params[:id])
     @dump.update(dump_params)
     render :edit unless @dump.update(dump_params)
   end
 
   def destroy
-    dump = Dump.find(params[:id])
-    dump.destroy
+    @dump.destroy
   end
 
   def search
@@ -45,6 +43,10 @@ class DumpsController < ApplicationController
 
   def dump_params
     params.require(:dump).permit(:goods, :price, :image, :description, dump_tags_attributes: [:dump_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
+  end
+
+  def set_dump
+    @dump = Dump.find(params[:id])
   end
 
 end
