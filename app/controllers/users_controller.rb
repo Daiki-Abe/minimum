@@ -3,13 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @hate_count = User.set_hate_count(@user)
-
-    dumps = @user.dumps
-    dump_id = []
-    dumps.each do |dump|
-      dump_id << dump.id
-    end
-    @dump_count = Like.where(dump_id: dump_id).count
+    @dump_count = User.set_like_count(@user)
   end
 
   def mydump

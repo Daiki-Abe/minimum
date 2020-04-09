@@ -21,4 +21,13 @@ class User < ApplicationRecord
     hate_count = Hate.where(buy_id: buy_id).count
   end
 
+  def self.set_like_count(user)
+    dumps = user.dumps
+    dump_id = []
+    dumps.each do |dump|
+      dump_id << dump.id
+    end
+    dump_count = Like.where(dump_id: dump_id).count
+  end
+
 end
