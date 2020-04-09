@@ -1,5 +1,5 @@
 module ApplicationHelper
   def user_menu_list(instance)
-    if user_signed_in? && current_user.id == instance.user_id
+    user_signed_in? && current_user.id == instance.user_id
   end
 end
