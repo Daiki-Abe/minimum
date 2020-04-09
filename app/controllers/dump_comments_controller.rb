@@ -14,8 +14,4 @@ class DumpCommentsController < ApplicationController
     params.require(:dump_comment).permit(:text).merge(user_id: current_user.id, dump_id: params[:dump_id])
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in? 
-  end
-
 end
