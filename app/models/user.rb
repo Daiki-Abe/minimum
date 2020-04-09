@@ -12,4 +12,13 @@ class User < ApplicationRecord
   has_many :dump_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  def self.set_hate_count(user)
+    buys = user.buys
+    buy_id = []
+    buys.each do |buy|
+      buy_id << buy.id
+    end
+    hate_count = Hate.where(buy_id: buy_id).count
+  end
+
 end

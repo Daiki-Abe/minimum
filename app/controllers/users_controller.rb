@@ -1,13 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :mydump, :mybuy, :dumpsearch, :search]
-  
+
   def show
-    buys = @user.buys
-    buy_id = []
-    buys.each do |buy|
-      buy_id << buy.id
-    end
-    @hate_count = Hate.where(buy_id: buy_id).count
+    @hate_count = User.set_hate_count(@user)
 
     dumps = @user.dumps
     dump_id = []
