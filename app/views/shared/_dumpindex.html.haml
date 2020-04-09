@@ -25,7 +25,7 @@
               %li
                 = link_to "EDIT", edit_dump_path(dump.id), method: :get
               %li
-                = link_to "DELETE", dump_path(dump.id), method: :delete
+                = link_to "DELETE", dump_path(dump.id), method: :delete, data: { confirm: "本当に投稿を削除しますか?" } 
       .buy__item-bottom
         .buy__item-bottom.item-icon
           %div{id: "hate-#{dump.id}", class: "buy__item-bottom item-icon__hate"}
