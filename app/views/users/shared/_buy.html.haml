@@ -1,14 +1,7 @@
 .item-area
   .item-area__item.title-box
     = "#{@user.name}さんの『購入品』一覧"
-  .item-area__item.search-box
-    .item-area__item.search-box__tag
-      = form_with url: mybuy_user_path(current_user.id), local: true, method: :get, class: "search-tag" do |f|
-        = select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), {prompt: "タグで絞り込み検索", onchange: 'submit(this.form);'}
-    .item-area__item.search-box__free
-      = form_with url: search_user_path(current_user.id), local: true, method: :get, class: "search-form" do |f|
-        = f.text_field :keyword, class: "search-input", placeholder: "フリーワード検索"
-        = f.submit "検索", class: "search-btn"
+  = render partial: "shared/search", locals: {tagpath: mybuy_user_path(current_user.id), searchpath: search_user_path(current_user.id)}
 
 .buy
   - @buys.each do |buy|
@@ -22,11 +15,10 @@
             %ul.more-list
               %li
                 = link_to "SHOW", buy_path(buy.id), method: :get
-              - if user_signed_in? && current_user.id == buy.user_id
-                %li
-                  = link_to "EDIT", edit_buy_path(buy.id), method: :get
-                %li
-                  = link_to "DELETE", buy_path(buy.id), method: :delete
+              %li
+                = link_to "EDIT", edit_buy_path(buy.id), method: :get
+              %li
+                = link_to "DELETE", buy_path(buy.id), method: :delete, data: { confirm: "本当に投稿を削除しますか?" } 
         .buy__item-bottom
           .buy__item-bottom.item-icon
             %div{id: "hate-#{buy.id}", class: "buy__item-bottom item-icon__hate"}
