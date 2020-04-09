@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only:[:show, :mydump, :mybuy, :dumpsearch, :search]
   def show
-    @user = User.find(params[:id])
-
     buys = @user.buys
     buy_id = []
     buys.each do |buy|
@@ -18,22 +17,25 @@ class UsersController < ApplicationController
   end
 
   def mydump
-    @user = User.find(params[:id])
     @dumps = params[:tag_id].present? ? Tag.find(params[:tag_id]).dumps.includes(:user) : Dump.includes(:user)
   end
 
   def mybuy
-    @user = User.find(params[:id])
     @buys = params[:tag_id].present? ? Tag.find(params[:tag_id]).buys.includes(:user) : Buy.includes(:user)
   end
 
   def dumpsearch
-    @user = User.find(params[:id])
     @dumps = Dump.search(params[:keyword])
   end
 
   def search
-    @user = User.find(params[:id])
     @buys = Buy.search(params[:keyword])
   end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
 end
