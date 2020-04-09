@@ -21,7 +21,7 @@
           %ul.more-list
             %li
               = link_to "SHOW", dump_path(dump.id), method: :get
-            - if user_signed_in? && current_user.id == dump.user_id
+            - if user_menu_list(dump)
               %li
                 = link_to "EDIT", edit_dump_path(dump.id), method: :get
               %li
