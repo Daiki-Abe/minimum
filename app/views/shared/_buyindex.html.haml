@@ -1,14 +1,7 @@
 .item-area
   .item-area__item.title-box
     みんなの購入品はどんなもの？
-  .item-area__item.search-box
-    .item-area__item.search-box__tag
-      = form_with url: buys_path, local: true, method: :get, class: "search-tag" do |f|
-        = select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), {prompt: "タグで絞り込み検索", onchange: 'submit(this.form);'}
-    .item-area__item.search-box__free
-      = form_with url: search_buys_path, local: true, method: :get, class: "search-form" do |f|
-        = f.text_field :keyword, class: "search-input", placeholder: "フリーワード検索"
-        = f.submit "検索", class: "search-btn"
+  = render partial: "shared/search", locals: {tagpath: buys_path, searchpath: search_buys_path}
 
 .buy
   - @buys.each do |buy|
