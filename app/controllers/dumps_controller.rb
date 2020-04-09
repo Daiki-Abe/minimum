@@ -47,7 +47,4 @@ class DumpsController < ApplicationController
     params.require(:dump).permit(:goods, :price, :image, :description, dump_tags_attributes: [:dump_id, :tag_id, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in? 
-  end
 end
