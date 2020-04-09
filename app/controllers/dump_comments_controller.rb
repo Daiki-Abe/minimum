@@ -1,5 +1,4 @@
 class DumpCommentsController < ApplicationController
-  before_action :move_to_index, only: [:create]
   def create
     @comment = DumpComment.create(comment_params)
     respond_to do |format|
