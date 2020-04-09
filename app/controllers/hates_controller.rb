@@ -1,5 +1,5 @@
 class HatesController < ApplicationController
-  before_action :set_buy, :move_to_index, only: [:create, :destroy]
+  before_action :set_buy, only: [:create, :destroy]
 
   def create
     @hate = Hate.create(user_id: current_user.id, buy_id: @buy.id)
@@ -14,10 +14,6 @@ class HatesController < ApplicationController
 
   def set_buy
     @buy = Buy.find(params[:buy_id])
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in? 
   end
 
 end
