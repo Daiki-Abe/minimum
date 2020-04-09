@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:show, :mydump, :mybuy, :dumpsearch, :search]
+  before_action :set_user, only: [:show, :mydump, :mybuy, :dumpsearch, :search]
   def show
     buys = @user.buys
     buy_id = []
