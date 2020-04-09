@@ -9,12 +9,9 @@ class CommentsController < ApplicationController
   end
 
   private
+  
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, buy_id: params[:buy_id])
-  end
-
-  def move_to_index
-    redirect_to action: :index unless user_signed_in? 
   end
 
 end
