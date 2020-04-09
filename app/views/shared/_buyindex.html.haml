@@ -21,7 +21,7 @@
           %ul.more-list
             %li
               = link_to "SHOW", buy_path(buy.id), method: :get
-            - if user_signed_in? && current_user.id == buy.user_id
+            - if user_menu_list(buy)
               %li
                 = link_to "EDIT", edit_buy_path(buy.id), method: :get
               %li
