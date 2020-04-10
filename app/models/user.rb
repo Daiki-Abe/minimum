@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: "は「aaa@bbb.ccc」の形式で入力してください" }
+  
   has_many :buys, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :hates, dependent: :destroy
