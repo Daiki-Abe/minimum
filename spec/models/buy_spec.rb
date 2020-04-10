@@ -42,5 +42,11 @@ describe Buy do
       buy.valid?
       expect(buy.errors[:buy_tags]).to include("を選択してください")
     end
+
+    it "user_idカラムに入力がないと投稿できない" do
+      buy = build(:buy, user_id: "")
+      buy.valid?
+      expect(buy.errors[:user]).to include("を入力してください")
+    end
   end
 end
