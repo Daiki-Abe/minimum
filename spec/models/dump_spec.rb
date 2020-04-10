@@ -42,5 +42,11 @@ describe Dump do
       dump.valid?
       expect(dump.errors[:dump_tags]).to include("を選択してください")
     end
+
+    it "user_idカラムに入力がないと投稿できない" do
+      dump = build(:dump, user_id: "")
+      dump.valid?
+      expect(dump.errors[:user]).to include("を入力してください")
+    end
   end
 end
