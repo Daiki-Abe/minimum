@@ -3,7 +3,7 @@ FactoryBot.define do
     goods        {"洋服"}
     price        {"5000"}
     image        {"fashion.jpg"}
-    description  {"同じ服を何枚も持っているから"}
+    description  {"同じような服を何枚も持っているから"}
     user_id      {1}
   end
 end
