@@ -5,9 +5,12 @@ describe BuysController, type: :controller do
     it "@buysに正しい値が入っていること" do
       buys = create_list(:buy, 3)
       get :index
+      expect(assigns(:buys)).to match(buys.sort{ |a, b| b.created_at <=> a.created_at } )
     end
 
     it "index.haml.hamlに遷移すること" do
+      get :index
+      expect(response).to render_template :index
     end
   end
 
