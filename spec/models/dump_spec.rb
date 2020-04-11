@@ -3,11 +3,8 @@ require 'rails_helper'
 describe Dump do
   describe '#create' do
     it "全てのカラムに入力があれば投稿できる" do
-      user = create(:user)
-      Tag.create(id: 4, name: "衣服")
-      dump = user.dumps.create(goods: "洋服", price: 5000, image: "youhuku.jpg", description: "同じような服を何枚も持っているから", user_id: 1)
-      check = dump.dump_tags.build(dump_id: 1, tag_id: 4)
-      expect(check).to be_valid
+      dump = build(:dump)
+      expect(dump).to be_valid
     end
 
     it "goodsカラムに入力がないと投稿できない" do
@@ -35,9 +32,7 @@ describe Dump do
     end
 
     it "タグを選択しないと投稿できない" do
-      user = create(:user)
-      Tag.create(id: 4, name: "衣服")
-      dump = user.dumps.create(goods: "洋服", price: 5000, image: "youhuku.jpg", description: "同じような服を何枚も持っているから", user_id: 1)
+      dump = build(:dump)
       dump.dump_tags.build
       dump.valid?
       expect(dump.errors[:dump_tags]).to include("を選択してください")

@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factroy :dump_tag do
+  factory :dump_tag do
     tag
     dump
   end
