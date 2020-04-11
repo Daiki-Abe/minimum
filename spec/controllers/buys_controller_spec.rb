@@ -1,6 +1,16 @@
 require 'rails_helper'
 
 describe BuysController, type: :controller do
+  describe 'GET #index' do
+    it "@buysに正しい値が入っていること" do
+      buys = create_list(:buy, 3)
+      get :index
+    end
+
+    it "index.haml.hamlに遷移すること" do
+    end
+  end
+
   describe 'GET #new' do
     it "new.html.hamlに遷移すること" do
       get :new
@@ -11,12 +21,14 @@ describe BuysController, type: :controller do
   describe 'GET #edit' do
     it "@buyに正しい値が入っていること" do
       buy = create(:buy)
-      check = buy.buy_tags.build(buy_id: 1, tag_id: 5)
-      get :edit, params: {id: check}
-      expect(assigns(:buy)).to eq check
+      get :edit, params: {id: buy}
+      expect(assigns(:buy)).to eq buy
     end
 
     it "edit.html.hamlに遷移すること" do
+      buy = create(:buy)
+      get :edit, params: {id: buy}
+      expect(response).to render_template :edit
     end
   end
 end
