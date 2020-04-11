@@ -25,13 +25,6 @@ describe User do
       expect(user.errors[:password]).to include("を入力してください")
     end
 
-    it "同じメールアドレスを登録できない" do
-      user = create(:user)
-      another_user = build(:user)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("はすでに存在します")
-    end
-
     it "emailカラムに＠がないと登録ができない" do
       user = build(:user, email: "kkkgamil.com")
       user.valid?
