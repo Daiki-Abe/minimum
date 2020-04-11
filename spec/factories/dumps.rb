@@ -4,6 +4,10 @@ FactoryBot.define do
     price        {"5000"}
     image        {"fashion.jpg"}
     description  {"同じような服を何枚も持っているから"}
-    user_id      {1}
+    user
+    after(:build) do |dump|
+      tag = create(:tag)
+      dump.dump_tags << build(:dump_tag, tag: tag, dump: dump)
+    end
   end
 end
