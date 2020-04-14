@@ -12,6 +12,15 @@ feature 'User', type: :feature do
       click_on "会員登録をする"
       expect(page).to have_content("アカウント登録が完了しました")
     end
+
+    scenario 'ログインできないか' do
+      visit root_path
+      click_on "Log in"
+      fill_in "メールアドレス", with: "bbb@gmail.com"
+      fill_in "パスワード", with: "1111111"
+      click_on "ログインする"
+      expect(page).to have_content "メールアドレスまたはパスワードが違います"
+    end
   end
 
 
