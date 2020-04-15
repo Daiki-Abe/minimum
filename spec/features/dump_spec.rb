@@ -17,40 +17,40 @@ feature 'Dump', type: :feature do
     end
 
     scenario 'showページに遷移できるか' do
-      dump1 = create(:dump)
+      dump_1 = create(:dump)
       click_on "『断捨離』"
       click_on "SHOW"
-      expect(current_path).to eq dump_path(dump1.id)
+      expect(current_path).to eq dump_path(dump_1.id)
     end
 
     scenario 'showページにコメントフォームがないか' do
-      dump1 = create(:dump)
+      dump_1 = create(:dump)
       click_on "『断捨離』"
       click_on "SHOW"
       expect(page).to have_no_button "SEND"
     end
 
     scenario 'editページへのリンクが表示されないか' do
-      dump1 = create(:dump)
+      dump_1 = create(:dump)
       click_on "『断捨離』"
-      expect(page).to have_no_link edit_dump_path(dump1.id)
+      expect(page).to have_no_link edit_dump_path(dump_1.id)
     end
 
     scenario 'deleteページへのリンクが表示されないか' do
-      dump1 = create(:dump)
+      dump_1 = create(:dump)
       click_on "『断捨離』"
-      expect(page).to have_no_link dump_path(dump1.id)
+      expect(page).to have_no_link dump_path(dump_1.id)
     end
 
     scenario 'likeページへのリンクが表示されないか' do
-      dump1 = create(:dump)
+      dump_1 = create(:dump)
       click_on "『断捨離』"
       expect(page).to have_no_css ".like-path"
     end
 
     scenario 'フリーワード検索ができるか' do
-      dump1 = create(:dump, goods: "ボタンダウンシャツ")
-      dump2 = create(:dump, goods: "小説")
+      dump_1 = create(:dump, goods: "ボタンダウンシャツ")
+      dump_2 = create(:dump, goods: "小説")
       visit root_path
       fill_in :keyword, with: "ボタンダウン"
       click_on "検索"
@@ -77,63 +77,72 @@ feature 'Dump', type: :feature do
     end
 
     scenario 'showページに遷移できるか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       click_on "SHOW"
-      expect(current_path).to eq dump_path(dump1.id)
+      expect(current_path).to eq dump_path(dump_1.id)
     end
 
     scenario 'showページにコメントフォームがあるか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       click_on "SHOW"
       expect(page).to have_button "SEND"
     end
 
+    scenario 'コメントができるか' do
+      dump_1 = create(:dump, user_id: user.id)
+      click_on "『断捨離』"
+      click_on "SHOW"
+      fill_in class: "buy-comment__send-text", with: "素晴らしいです"
+      click_on "SEND"
+      expect(page).to have_content "素晴らしいです"
+    end
+
     scenario 'editページに遷移できるか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       click_on "EDIT"
-      expect(current_path).to eq edit_dump_path(dump1.id)
+      expect(current_path).to eq edit_dump_path(dump_1.id)
     end
 
     scenario 'editページのフォーム内容は正しい値か' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       click_on "EDIT"
-      expect(page).to have_field(:goods, with: "#{dump1.goods}")
+      expect(page).to have_field(:goods, with: "#{dump_1.goods}")
     end
 
     scenario 'editページのフォーム送信後のページに遷移できるか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       click_on "EDIT"
       click_on "Send"
-      expect(current_path).to eq dump_path(dump1.id)
+      expect(current_path).to eq dump_path(dump_1.id)
     end
 
     scenario 'deleteページに遷移できるか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       click_on "DELETE"
-      expect(current_path).to eq dump_path(dump1.id)
+      expect(current_path).to eq dump_path(dump_1.id)
     end
 
     scenario 'deleteできるか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       expect{click_on "DELETE"}.to change(Dump, :count).by(-1)
     end
 
     scenario 'likeボタンが表示されているか' do
-      dump1 = create(:dump, user_id: user.id)
+      dump_1 = create(:dump, user_id: user.id)
       click_on "『断捨離』"
       expect(page).to have_css ".like-path"
     end
 
     scenario 'フリーワード検索ができるか' do
-      dump1 = create(:dump, goods: "ボタンダウンシャツ")
-      dump2 = create(:dump, goods: "小説")
+      dump_1 = create(:dump, goods: "ボタンダウンシャツ")
+      dump_2 = create(:dump, goods: "小説")
       visit root_path
       fill_in :keyword, with: "ボタンダウン"
       click_on "検索"

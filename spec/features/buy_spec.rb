@@ -49,8 +49,8 @@ feature 'Buy', type: :feature do
     end
 
     scenario 'フリーワード検索ができるか' do
-      buy1 = create(:buy, goods: "ボタンダウンシャツ")
-      buy2 = create(:buy, goods: "小説")
+      buy_1 = create(:buy, goods: "ボタンダウンシャツ")
+      buy_2 = create(:buy, goods: "小説")
       visit buys_path
       fill_in :keyword, with: "ボタンダウン"
       click_on "検索"
@@ -88,6 +88,15 @@ feature 'Buy', type: :feature do
       click_on "『購入品』"
       click_on "SHOW"
       expect(page).to have_button "SEND"
+    end
+
+    scenario 'コメントができるか' do
+      buy_1 = create(:buy, user_id: user.id)
+      click_on "『購入品』"
+      click_on "SHOW"
+      fill_in class: "buy-comment__send-text", with: "素晴らしいです"
+      click_on "SEND"
+      expect(page).to have_content "素晴らしいです"
     end
 
     scenario 'editページに遷移できるか' do
@@ -132,8 +141,8 @@ feature 'Buy', type: :feature do
     end
 
     scenario 'フリーワード検索ができるか' do
-      buy1 = create(:buy, goods: "ボタンダウンシャツ")
-      buy2 = create(:buy, goods: "小説")
+      buy_1 = create(:buy, goods: "ボタンダウンシャツ")
+      buy_2 = create(:buy, goods: "小説")
       visit buys_path
       fill_in :keyword, with: "ボタンダウン"
       click_on "検索"
