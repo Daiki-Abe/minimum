@@ -4,7 +4,7 @@ feature 'Buy', type: :feature do
   feature 'ログイン前', type: :feature do
     
     background do
-      visit root_path
+      visit buys_path
     end
 
     scenario 'ホーム画面が表示されているか' do
@@ -46,6 +46,16 @@ feature 'Buy', type: :feature do
       buy_1 = create(:buy)
       click_on "『購入品』"
       expect(page).to have_no_css ".hate-path"
+    end
+
+    scenario 'フリーワード検索ができるか' do
+      buy1 = create(:buy, goods: "ボタンダウンシャツ")
+      buy2 = create(:buy, goods: "小説")
+      visit buys_path
+      fill_in :keyword, with: "ボタンダウン"
+      click_on "検索"
+      expect(page).to have_content("ボタンダウンシャツ")
+      expect(page).to have_no_content("小説")
     end
   end
 
@@ -119,6 +129,16 @@ feature 'Buy', type: :feature do
       buy_1 = create(:buy, user_id: user.id)
       click_on "『購入品』"
       expect(page).to have_css ".hate-path"
+    end
+
+    scenario 'フリーワード検索ができるか' do
+      buy1 = create(:buy, goods: "ボタンダウンシャツ")
+      buy2 = create(:buy, goods: "小説")
+      visit buys_path
+      fill_in :keyword, with: "ボタンダウン"
+      click_on "検索"
+      expect(page).to have_content("ボタンダウンシャツ")
+      expect(page).to have_no_content("小説")
     end
 
     scenario 'mypageに遷移できるか' do
