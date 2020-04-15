@@ -1,0 +1,29 @@
+.send-buy__form.form__buy
+  = form_for [@buy], html: {class: "form__area"} do |f|
+    .send__buy
+      - if @buy.errors.any?
+        %ul
+          %li.error__messages
+            = @buy.errors.full_messages_for(:goods).first
+      = f.text_field :goods, class: "send__buy-goods", placeholder: "購入品 （例）MacBook"
+      - if @buy.errors.any?
+        %ul
+          %li.error__messages
+            = @buy.errors.full_messages_for(:price).first
+      = f.text_field :price, class: "send__buy-price", placeholder: "購入金額 （例）150000"
+      - if @buy.errors.any?
+        %ul
+          %li.error__messages
+            = @buy.errors.full_messages_for(:buy_tags).first
+      = f.fields_for :buy_tags do |t|
+        = t.collection_select :tag_id, Tag.all, :id, :name, include_blank: '選択してください'
+      = f.label :image, class: "send__buy-image" do
+        = icon('fas', 'image', class: "send__buy-image__icon")
+        写真を選択してください
+        = f.file_field :image, class: "send__buy-image__field"
+      - if @buy.errors.any?
+        %ul
+          %li.error__messages
+            = @buy.errors.full_messages_for(:description).first
+      = f.text_area :description, class: "send__buy-description", rows: "10", placeholder: "購入した理由 （例）プログラミング学習をするために、購入しました。"
+      = f.submit "Send", class: "send__buy-submit"
