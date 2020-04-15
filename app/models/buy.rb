@@ -19,12 +19,6 @@ class Buy < ApplicationRecord
   validates_associated :buy_tags, message: "を選択してください"
   validates :buy_tags, presence: true
 
-  def self.search(search)
-    if search
-      Buy.where('goods LIKE(?)', "%#{search}%")
-    else
-      Buy.all
-    end
-  end
+  scope :search, -> (search){where('goods LIKE(?)', "%#{search}%")}
 
 end
