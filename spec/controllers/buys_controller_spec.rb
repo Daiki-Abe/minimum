@@ -61,13 +61,24 @@ describe BuysController, type: :controller do
 
         it 'createページに遷移すること' do
           subject
-          expect(response.status).to eq(200)
+          expect(response.status).to render_template :create
         end
       end
 
       context '保存に失敗した場合' do
+        let(:invalid_params) { { buy: attributes_for(:buy, user_id: user.id, buy_tags_attributes: [tag_id: ""]) } }
+
+        subject {
+          post :create,
+          params: invalid_params
+        }
+
+        it 'buyを保存しないこと' do
+          expect{subject}.not_to change(Buy, :count)
+        end
+
         it 'newページに遷移されること' do
-          post :create, params: { buy: attributes_for(:buy, user_id: "") } 
+          subject
           expect(response).to render_template :new
         end
       end
