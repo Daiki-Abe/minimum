@@ -66,8 +66,19 @@ describe DumpsController, type: :controller do
       end
 
       context '保存に失敗した場合' do
+        let(:invalid_params) { { dump: attributes_for(:dump, user_id: user.id, dump_tags_attributes: [tag_id: ""]) } }
+
+        subject {
+          post :create,
+          params: invalid_params
+        }
+
+        it 'dumpを保存しないこと' do
+          expect{subject}.not_to change(Dump, :count)
+        end
+
         it 'newページに遷移されること' do
-          post :create, params: { dump: attributes_for(:dump, user_id: "") } 
+          subject
           expect(response).to render_template :new
         end
       end
