@@ -36,6 +36,9 @@ Style/FrozenStringLiteralComment:
 Metrics/LineLength:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/AbcSize:
   Max: 20
 
