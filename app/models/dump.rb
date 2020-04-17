@@ -19,12 +19,6 @@ class Dump < ApplicationRecord
   validates_associated :dump_tags, message: "を選択してください"
   validates :dump_tags, presence: true
 
-  def self.search(search)
-    if search
-      Dump.where('goods LIKE(?)', "%#{search}%")
-    else
-      Dump.all
-    end
-  end
+  scope :search, -> (search){where('goods LIKE(?)', "%#{search}%")}
   
 end
