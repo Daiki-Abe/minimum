@@ -23,7 +23,7 @@ feature 'Dump', type: :feature do
     end
 
     scenario 'showページにコメントフォームがないか' do
-      dump_1 = create(:dump)
+      create(:dump)
       click_on '『断捨離』'
       click_on 'SHOW'
       expect(page).to have_no_button 'SEND'
@@ -42,14 +42,14 @@ feature 'Dump', type: :feature do
     end
 
     scenario 'likeページへのリンクが表示されないか' do
-      dump_1 = create(:dump)
+      create(:dump)
       click_on '『断捨離』'
       expect(page).to have_no_css '.like-path'
     end
 
     scenario 'フリーワード検索ができるか' do
-      dump_1 = create(:dump, goods: 'ボタンダウンシャツ')
-      dump_2 = create(:dump, goods: '小説')
+      create(:dump, goods: 'ボタンダウンシャツ')
+      create(:dump, goods: '小説')
       visit root_path
       fill_in :keyword, with: 'ボタンダウン'
       click_on '検索'
@@ -82,14 +82,14 @@ feature 'Dump', type: :feature do
     end
 
     scenario 'showページにコメントフォームがあるか' do
-      dump_1 = create(:dump, user_id: user.id)
+      create(:dump, user_id: user.id)
       click_on '『断捨離』'
       click_on 'SHOW'
       expect(page).to have_button 'SEND'
     end
 
     scenario 'コメントができるか' do
-      dump_1 = create(:dump, user_id: user.id)
+      create(:dump, user_id: user.id)
       click_on '『断捨離』'
       click_on 'SHOW'
       fill_in class: 'buy-comment__send-text', with: '素晴らしいです'
@@ -127,20 +127,20 @@ feature 'Dump', type: :feature do
     end
 
     scenario 'deleteできるか' do
-      dump_1 = create(:dump, user_id: user.id)
+      create(:dump, user_id: user.id)
       click_on '『断捨離』'
       expect { click_on 'DELETE' }.to change(Dump, :count).by(-1)
     end
 
     scenario 'likeボタンが表示されているか' do
-      dump_1 = create(:dump, user_id: user.id)
+      create(:dump, user_id: user.id)
       click_on '『断捨離』'
       expect(page).to have_css '.like-path'
     end
 
     scenario 'フリーワード検索ができるか' do
-      dump_1 = create(:dump, goods: 'ボタンダウンシャツ')
-      dump_2 = create(:dump, goods: '小説')
+      create(:dump, goods: 'ボタンダウンシャツ')
+      create(:dump, goods: '小説')
       visit root_path
       fill_in :keyword, with: 'ボタンダウン'
       click_on '検索'
