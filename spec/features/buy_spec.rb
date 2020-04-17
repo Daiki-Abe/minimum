@@ -23,7 +23,7 @@ feature 'Buy', type: :feature do
     end
 
     scenario 'showページにコメントフォームがないか' do
-      buy_1 = create(:buy)
+      create(:buy)
       click_on '『購入品』'
       click_on 'SHOW'
       expect(page).to have_no_button 'SEND'
@@ -42,14 +42,14 @@ feature 'Buy', type: :feature do
     end
 
     scenario 'hateページへのリンクが表示されないか' do
-      buy_1 = create(:buy)
+      create(:buy)
       click_on '『購入品』'
       expect(page).to have_no_css '.hate-path'
     end
 
     scenario 'フリーワード検索ができるか' do
-      buy_1 = create(:buy, goods: 'ボタンダウンシャツ')
-      buy_2 = create(:buy, goods: '小説')
+      create(:buy, goods: 'ボタンダウンシャツ')
+      create(:buy, goods: '小説')
       visit buys_path
       fill_in :keyword, with: 'ボタンダウン'
       click_on '検索'
@@ -82,14 +82,14 @@ feature 'Buy', type: :feature do
     end
 
     scenario 'showページにコメントフォームがあるか' do
-      buy_1 = create(:buy, user_id: user.id)
+      create(:buy, user_id: user.id)
       click_on '『購入品』'
       click_on 'SHOW'
       expect(page).to have_button 'SEND'
     end
 
     scenario 'コメントができるか' do
-      buy_1 = create(:buy, user_id: user.id)
+      create(:buy, user_id: user.id)
       click_on '『購入品』'
       click_on 'SHOW'
       fill_in class: 'buy-comment__send-text', with: '素晴らしいです'
@@ -127,20 +127,20 @@ feature 'Buy', type: :feature do
     end
 
     scenario 'deleteできるか' do
-      buy_1 = create(:buy, user_id: user.id)
+      create(:buy, user_id: user.id)
       click_on '『購入品』'
       expect { click_on 'DELETE' }.to change(Buy, :count).by(-1)
     end
 
     scenario 'hateボタンが表示されているか' do
-      buy_1 = create(:buy, user_id: user.id)
+      create(:buy, user_id: user.id)
       click_on '『購入品』'
       expect(page).to have_css '.hate-path'
     end
 
     scenario 'フリーワード検索ができるか' do
-      buy_1 = create(:buy, goods: 'ボタンダウンシャツ')
-      buy_2 = create(:buy, goods: '小説')
+      create(:buy, goods: 'ボタンダウンシャツ')
+      create(:buy, goods: '小説')
       visit buys_path
       fill_in :keyword, with: 'ボタンダウン'
       click_on '検索'
