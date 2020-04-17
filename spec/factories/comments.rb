@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    text {"素晴らしいです"}
+    text { '素晴らしいです' }
     user
-    buy 
+    buy
   end
 end

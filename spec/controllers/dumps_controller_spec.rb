@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 describe DumpsController, type: :controller do
-  let(:user) {create(:user)}
-  let(:tag) {create(:tag)}
-  let(:dump) {create(:dump)}
+  let(:user) { create(:user) }
+  let(:tag) { create(:tag) }
+  let(:dump) { create(:dump) }
 
   describe 'GET #index' do
     it '@dumpsに正しい値が入っていること' do
       dumps = create_list(:dump, 3)
       get :index
-      expect(assigns(:dumps)).to match(dumps.sort{ |a, b| b.created_at <=> a.created_at } )
+      expect(assigns(:dumps)).to match(dumps.sort { |a, b| b.created_at <=> a.created_at })
     end
 
     it 'indexページに遷移すること' do
@@ -50,13 +50,13 @@ describe DumpsController, type: :controller do
       end
 
       context '保存に成功した場合' do
-        subject {
+        subject do
           post :create,
-          params: params
-        }
+               params: params
+        end
 
         it 'dumpを保存すること' do
-          expect{subject}.to change(Dump, :count).by(1)
+          expect { subject }.to change(Dump, :count).by(1)
         end
 
         it 'createページに遷移すること' do
@@ -66,15 +66,15 @@ describe DumpsController, type: :controller do
       end
 
       context '保存に失敗した場合' do
-        let(:invalid_params) { { dump: attributes_for(:dump, user_id: user.id, dump_tags_attributes: [tag_id: ""]) } }
+        let(:invalid_params) { { dump: attributes_for(:dump, user_id: user.id, dump_tags_attributes: [tag_id: '']) } }
 
-        subject {
+        subject do
           post :create,
-          params: invalid_params
-        }
+               params: invalid_params
+        end
 
         it 'dumpを保存しないこと' do
-          expect{subject}.not_to change(Dump, :count)
+          expect { subject }.not_to change(Dump, :count)
         end
 
         it 'newページに遷移されること' do
@@ -94,7 +94,7 @@ describe DumpsController, type: :controller do
 
   describe 'GET #show' do
     before do
-      get :show, params: {id: dump}
+      get :show, params: { id: dump }
     end
 
     it '@dumpに正しい値が入っていること' do
@@ -110,28 +110,28 @@ describe DumpsController, type: :controller do
     context 'ログインしてる場合' do
       before do
         login user
-        get :edit, params: {id: dump}
+        get :edit, params: { id: dump }
       end
 
-      it "@dumpに正しい値が入っていること" do
+      it '@dumpに正しい値が入っていること' do
         expect(assigns(:dump)).to eq dump
       end
-      
-      it "editページに遷移すること" do
+
+      it 'editページに遷移すること' do
         expect(response).to render_template :edit
       end
     end
 
     context 'ログインしていない場合' do
       it 'indexページにリダイレクトすること' do
-        get :edit, params: {id: dump}
+        get :edit, params: { id: dump }
         expect(response).to redirect_to(root_path)
       end
     end
   end
 
-  describe "PATCH #update" do
-  let(:params) { { id: dump, dump: attributes_for(:dump, goods: "hogehoge", user_id: user.id, dump_tags_attributes: [tag_id: tag.id]) } }
+  describe 'PATCH #update' do
+    let(:params) { { id: dump, dump: attributes_for(:dump, goods: 'hogehoge', user_id: user.id, dump_tags_attributes: [tag_id: tag.id]) } }
 
     context 'ログインしている場合' do
       before do
@@ -146,10 +146,10 @@ describe DumpsController, type: :controller do
 
         it '更新処理がされること' do
           dump.reload
-          expect(dump.goods).to eq("hogehoge") 
+          expect(dump.goods).to eq('hogehoge')
         end
 
-        it "updateページに遷移すること" do
+        it 'updateページに遷移すること' do
           expect(response.status).to eq(200)
         end
       end
@@ -178,17 +178,17 @@ describe DumpsController, type: :controller do
 
       it '削除されること' do
         dump = create(:dump)
-        expect{delete :destroy, params: {id: dump}}.to change(Dump, :count).by(-1)
+        expect { delete :destroy, params: { id: dump } }.to change(Dump, :count).by(-1)
       end
 
       it 'destroyページに遷移されること' do
-        expect(delete :destroy, params: {id: dump}).to render_template :destroy
+        expect(delete(:destroy, params: { id: dump })).to render_template :destroy
       end
     end
 
     context 'ログインしていない場合' do
       it 'indexページに遷移すること' do
-        delete :destroy, params: {id: dump}
+        delete :destroy, params: { id: dump }
         expect(response).to redirect_to(root_path)
       end
     end

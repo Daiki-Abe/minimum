@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 describe BuysController, type: :controller do
-  let(:user) {create(:user)}
-  let(:tag) {create(:tag)}
-  let(:buy) {create(:buy)}
+  let(:user) { create(:user) }
+  let(:tag) { create(:tag) }
+  let(:buy) { create(:buy) }
 
   describe 'GET #index' do
     it '@buysに正しい値が入っていること' do
       buys = create_list(:buy, 3)
       get :index
-      expect(assigns(:buys)).to match(buys.sort{ |a, b| b.created_at <=> a.created_at } )
+      expect(assigns(:buys)).to match(buys.sort { |a, b| b.created_at <=> a.created_at })
     end
 
     it 'indexページに遷移すること' do
@@ -50,13 +50,13 @@ describe BuysController, type: :controller do
       end
 
       context '保存に成功した場合' do
-        subject {
+        subject do
           post :create,
-          params: params
-        }
+               params: params
+        end
 
         it 'buyを保存すること' do
-          expect{subject}.to change(Buy, :count).by(1)
+          expect { subject }.to change(Buy, :count).by(1)
         end
 
         it 'createページに遷移すること' do
@@ -66,15 +66,15 @@ describe BuysController, type: :controller do
       end
 
       context '保存に失敗した場合' do
-        let(:invalid_params) { { buy: attributes_for(:buy, user_id: user.id, buy_tags_attributes: [tag_id: ""]) } }
+        let(:invalid_params) { { buy: attributes_for(:buy, user_id: user.id, buy_tags_attributes: [tag_id: '']) } }
 
-        subject {
+        subject do
           post :create,
-          params: invalid_params
-        }
+               params: invalid_params
+        end
 
         it 'buyを保存しないこと' do
-          expect{subject}.not_to change(Buy, :count)
+          expect { subject }.not_to change(Buy, :count)
         end
 
         it 'newページに遷移されること' do
@@ -94,7 +94,7 @@ describe BuysController, type: :controller do
 
   describe 'GET #show' do
     before do
-      get :show, params: {id: buy}
+      get :show, params: { id: buy }
     end
 
     it '@buyに正しい値が入っていること' do
@@ -110,28 +110,28 @@ describe BuysController, type: :controller do
     context 'ログインしてる場合' do
       before do
         login user
-        get :edit, params: {id: buy}
+        get :edit, params: { id: buy }
       end
 
-      it "@buyに正しい値が入っていること" do
+      it '@buyに正しい値が入っていること' do
         expect(assigns(:buy)).to eq buy
       end
-      
-      it "editページに遷移すること" do
+
+      it 'editページに遷移すること' do
         expect(response).to render_template :edit
       end
     end
 
     context 'ログインしていない場合' do
       it 'indexページにリダイレクトすること' do
-        get :edit, params: {id: buy}
+        get :edit, params: { id: buy }
         expect(response).to redirect_to(buys_path)
       end
     end
   end
 
-  describe "PATCH #update" do
-  let(:params) { { id: buy, buy: attributes_for(:buy, goods: "hogehoge", user_id: user.id, buy_tags_attributes: [tag_id: tag.id]) } }
+  describe 'PATCH #update' do
+    let(:params) { { id: buy, buy: attributes_for(:buy, goods: 'hogehoge', user_id: user.id, buy_tags_attributes: [tag_id: tag.id]) } }
 
     context 'ログインしている場合' do
       before do
@@ -146,10 +146,10 @@ describe BuysController, type: :controller do
 
         it '更新処理がされること' do
           buy.reload
-          expect(buy.goods).to eq("hogehoge") 
+          expect(buy.goods).to eq('hogehoge')
         end
 
-        it "updateページに遷移すること" do
+        it 'updateページに遷移すること' do
           expect(response.status).to eq(200)
         end
       end
@@ -178,17 +178,17 @@ describe BuysController, type: :controller do
 
       it '削除されること' do
         buy = create(:buy)
-        expect{delete :destroy, params: {id: buy}}.to change(Buy, :count).by(-1)
+        expect { delete :destroy, params: { id: buy } }.to change(Buy, :count).by(-1)
       end
 
       it 'destroyページに遷移されること' do
-        expect(delete :destroy, params: {id: buy}).to render_template :destroy
+        expect(delete(:destroy, params: { id: buy })).to render_template :destroy
       end
     end
 
     context 'ログインしていない場合' do
       it 'indexページに遷移すること' do
-        delete :destroy, params: {id: buy}
+        delete :destroy, params: { id: buy }
         expect(response).to redirect_to(buys_path)
       end
     end

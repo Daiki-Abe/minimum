@@ -1,9 +1,9 @@
 class DumpsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   before_action :set_dump, only: [:show, :edit, :update, :destroy]
-  
+
   def index
-    @dumps = params[:tag_id].present? ? Tag.find(params[:tag_id]).dumps.includes(:user).order("created_at DESC").page(params[:page]).per(18) : Dump.includes(:user).order("created_at DESC").page(params[:page]).per(18)
+    @dumps = params[:tag_id].present? ? Tag.find(params[:tag_id]).dumps.includes(:user).order('created_at DESC').page(params[:page]).per(18) : Dump.includes(:user).order('created_at DESC').page(params[:page]).per(18)
   end
 
   def new
@@ -36,7 +36,7 @@ class DumpsController < ApplicationController
   end
 
   def search
-    @dumps = Dump.search(params[:keyword]).order("created_at DESC").page(params[:page]).per(18)
+    @dumps = Dump.search(params[:keyword]).order('created_at DESC').page(params[:page]).per(18)
   end
 
   private
@@ -48,5 +48,4 @@ class DumpsController < ApplicationController
   def set_dump
     @dump = Dump.find(params[:id])
   end
-
 end

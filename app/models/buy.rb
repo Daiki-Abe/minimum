@@ -11,14 +11,13 @@ class Buy < ApplicationRecord
     validates :description
   end
 
-  validates :price, numericality: {only_integer: true, message: "は半角数字で入力してください"}
+  validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください' }
 
   mount_uploader :image, ImageUploader
 
   accepts_nested_attributes_for :buy_tags, allow_destroy: true
-  validates_associated :buy_tags, message: "を選択してください"
+  validates_associated :buy_tags, message: 'を選択してください'
   validates :buy_tags, presence: true
 
-  scope :search, -> (search){where('goods LIKE(?)', "%#{search}%")}
-
+  scope :search, ->(search) { where('goods LIKE(?)', "%#{search}%") }
 end
