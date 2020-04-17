@@ -8,7 +8,7 @@ class BuysController < ApplicationController
 
   def new
     @buy = Buy.new
-    buy_tags = @buy.buy_tags.build
+    @buy.buy_tags.build
   end
 
   def create
@@ -23,7 +23,7 @@ class BuysController < ApplicationController
   end
 
   def edit
-    buy_tags = @buy.buy_tags
+    @buy.buy_tags
   end
 
   def update
