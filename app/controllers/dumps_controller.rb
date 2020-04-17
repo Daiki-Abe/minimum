@@ -8,7 +8,7 @@ class DumpsController < ApplicationController
 
   def new
     @dump = Dump.new
-    dump_tags = @dump.dump_tags.build
+    @dump.dump_tags.build
   end
 
   def create
@@ -23,7 +23,7 @@ class DumpsController < ApplicationController
   end
 
   def edit
-    dump_tags = @dump.dump_tags
+    @dump.dump_tags
   end
 
   def update
