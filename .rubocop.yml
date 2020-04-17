@@ -1,1 +1,28 @@
 inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'config.ru'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
+AsciiComments:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
