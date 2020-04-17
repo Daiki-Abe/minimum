@@ -21,7 +21,7 @@ class User < ApplicationRecord
     buys.each do |buy|
       buy_id << buy.id
     end
-    hate_count = Hate.where(buy_id: buy_id).count
+    Hate.where(buy_id: buy_id).count
   end
 
   def self.set_like_count(user)
@@ -30,6 +30,6 @@ class User < ApplicationRecord
     dumps.each do |dump|
       dump_id << dump.id
     end
-    dump_count = Like.where(dump_id: dump_id).count
+    Like.where(dump_id: dump_id).count
   end
 end
