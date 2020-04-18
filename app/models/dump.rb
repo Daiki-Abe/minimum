@@ -11,14 +11,13 @@ class Dump < ApplicationRecord
     validates :description
   end
 
-  validates :price, numericality: {only_integer: true, message: "は半角数字で入力してください"}
+  validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください' }
 
   mount_uploader :image, ImageUploader
 
   accepts_nested_attributes_for :dump_tags, allow_destroy: true
-  validates_associated :dump_tags, message: "を選択してください"
+  validates_associated :dump_tags, message: 'を選択してください'
   validates :dump_tags, presence: true
 
-  scope :search, -> (search){where('goods LIKE(?)', "%#{search}%")}
-  
+  scope :search, ->(search) { where('goods LIKE(?)', "%#{search}%") }
 end

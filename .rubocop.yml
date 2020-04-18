@@ -1,0 +1,46 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  Exclude:
+    - 'config.ru'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'Gemfile'
+
+Rails:
+  Enabled: true
+
+AsciiComments:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+AccessorMethodName:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Naming/VariableNumber:
+  Enabled: false

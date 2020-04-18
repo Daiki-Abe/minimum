@@ -2,7 +2,7 @@
   .buy-show__image{:style => "background-image: url(#{@buy.image.url})"}
     .buy-show__image-bar
       = icon('fas fa-caret-down', class: "menu-icon")
-      - if user_signed_in?
+      - if user_menu_list(@buy)
         %ul.more-list
           %li
             = link_to "EDIT", edit_buy_path(@buy.id), method: :get

@@ -15,5 +15,4 @@ class HatesController < ApplicationController
   def set_buy
     @buy = Buy.find(params[:buy_id])
   end
-
 end

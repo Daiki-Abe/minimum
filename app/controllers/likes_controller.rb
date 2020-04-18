@@ -15,5 +15,4 @@ class LikesController < ApplicationController
   def set_dump
     @dump = Dump.find(params[:dump_id])
   end
-
 end
