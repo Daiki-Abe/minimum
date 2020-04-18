@@ -3,7 +3,6 @@ jobs:
   build:
     parallelism: 3
     docker:
-      - env_file: db.env
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
           - RAILS_ENV: 'test'
