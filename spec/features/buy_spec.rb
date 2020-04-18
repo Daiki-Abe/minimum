@@ -132,6 +132,19 @@ feature 'Buy', type: :feature do
       expect { click_on 'DELETE' }.to change(Buy, :count).by(-1)
     end
 
+    scenario 'deleteしたら、コメントも削除されるか' do
+      buy_1 = create(:buy, user_id: user.id)
+      create(:comment, buy_id: buy_1.id)
+      click_on '『購入品』'
+      expect { click_on 'DELETE' }.to change(Comment, :count).by(-1)
+    end
+
+    scenario 'deleteしたら、タグも削除されるか' do
+      create(:buy, user_id: user.id)
+      click_on '『購入品』'
+      expect { click_on 'DELETE' }.to change(BuyTag, :count).by(-1)
+    end
+
     scenario 'hateボタンが表示されているか' do
       create(:buy, user_id: user.id)
       click_on '『購入品』'
