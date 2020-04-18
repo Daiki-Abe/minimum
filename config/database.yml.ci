@@ -6,4 +6,4 @@ test: &default
   password: <%= ENV.fetch("MYSQL_PASSWORD") %>
   host: '127.0.0.1'
   port: 4306:3306
-  database: ci_test
+  database: minimum_test
