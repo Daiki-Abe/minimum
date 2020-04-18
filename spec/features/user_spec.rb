@@ -71,27 +71,27 @@ feature 'User', type: :feature do
     scenario 'ユーザー退会処理をしたら、投稿（Dump）も削除されるか' do
       create(:dump, user_id: user.id)
       click_on 'My page'
-      expect{ click_on 'Leave Minimum' }.to change(Dump, :count).by(-1)
+      expect { click_on 'Leave Minimum' }.to change(Dump, :count).by(-1)
     end
 
     scenario 'ユーザー退会処理をしたら、コメント（Dump）も削除されるか' do
       dump_1 = create(:dump, user_id: user.id)
       create(:dump_comment, dump_id: dump_1.id)
       click_on 'My page'
-      expect{ click_on 'Leave Minimum' }.to change(DumpComment, :count).by(-1)
+      expect { click_on 'Leave Minimum' }.to change(DumpComment, :count).by(-1)
     end
 
     scenario 'ユーザー退会処理をしたら、投稿（Buy）も削除されるか' do
       create(:buy, user_id: user.id)
       click_on 'My page'
-      expect{ click_on 'Leave Minimum' }.to change(Buy, :count).by(-1)
+      expect { click_on 'Leave Minimum' }.to change(Buy, :count).by(-1)
     end
 
     scenario 'ユーザー退会処理をしたら、コメント（Buy）も削除されるか' do
       buy_1 = create(:buy, user_id: user.id)
       create(:comment, buy_id: buy_1.id)
       click_on 'My page'
-      expect{ click_on 'Leave Minimum' }.to change(Comment, :count).by(-1)
+      expect { click_on 'Leave Minimum' }.to change(Comment, :count).by(-1)
     end
   end
 end
