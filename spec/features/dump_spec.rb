@@ -132,6 +132,19 @@ feature 'Dump', type: :feature do
       expect { click_on 'DELETE' }.to change(Dump, :count).by(-1)
     end
 
+    scenario 'deleteしたら、コメントも削除されるか' do
+      dump_1 = create(:dump, user_id: user.id)
+      create(:dump_comment, dump_id: dump_1.id)
+      click_on '『断捨離』'
+      expect { click_on 'DELETE' }.to change(DumpComment, :count).by(-1)
+    end
+
+    scenario 'deleteしたら、タグも削除されるか' do
+      create(:dump, user_id: user.id)
+      click_on '『断捨離』'
+      expect { click_on 'DELETE' }.to change(DumpTag, :count).by(-1)
+    end
+
     scenario 'likeボタンが表示されているか' do
       create(:dump, user_id: user.id)
       click_on '『断捨離』'
