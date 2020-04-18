@@ -43,4 +43,4 @@ Metrics/AbcSize:
   Max: 20
 
 Naming/VariableNumber:
-  EnforcedStyle: snake_case
+  Enabled: false
