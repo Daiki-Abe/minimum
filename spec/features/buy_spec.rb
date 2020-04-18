@@ -108,7 +108,7 @@ feature 'Buy', type: :feature do
       buy_1 = create(:buy, user_id: user.id)
       click_on '『購入品』'
       click_on 'EDIT'
-      expect(page).to have_field(:goods, with: buy_1.goods.to_s)
+      expect(page).to have_field(class: 'send__buy-goods', with: buy_1.goods.to_s)
     end
 
     scenario 'editページのフォーム送信後のページに遷移できるか' do

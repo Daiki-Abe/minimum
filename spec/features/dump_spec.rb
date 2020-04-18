@@ -108,7 +108,7 @@ feature 'Dump', type: :feature do
       dump_1 = create(:dump, user_id: user.id)
       click_on '『断捨離』'
       click_on 'EDIT'
-      expect(page).to have_field(:goods, with: dump_1.goods.to_s)
+      expect(page).to have_field(class: 'send__buy-goods', with: dump_1.goods.to_s)
     end
 
     scenario 'editページのフォーム送信後のページに遷移できるか' do
