@@ -4,6 +4,6 @@ test: &default
   pool: 5
   username: <%= ENV.fetch("MYSQL_USERNAME") %>
   password: <%= ENV.fetch("MYSQL_PASSWORD") %>
-  host: '127.0.0.1'
-  port: 3306
+  host: <%= ENV.fetch("MYSQL_HOST") %>
+  port: <%= ENV.fetch("MYSQL_PORT") %>
   database: ci_test
