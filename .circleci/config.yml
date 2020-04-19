@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    parallelism: 3
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
@@ -21,7 +20,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: install dependencies
-          command:
+          command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
