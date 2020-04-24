@@ -13,7 +13,6 @@ if Rails.env.production?
     }
 
     config.fog_directory  = 'myminimum'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/myminimum'
   end
   CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 end
