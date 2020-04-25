@@ -1,8 +1,8 @@
 ## :wrench: アプリ名
-MINIMUM
+「MINIMUM」
 
 ## :globe_with_meridians: URL
-(https://myminimum.herokuapp.com)
+https://myminimum.herokuapp.com
 
 ## :key: 採用ご担当者様のアカウント
 メールアドレス：「saiyou4444@gmail.com」<br>
@@ -27,7 +27,7 @@ MINIMUM
 
 
 ### :art: 使用技術
-- 「Ruby on Rails」で製作
+- 「Ruby on Rails」でアプリ製作
 - 「Docker」で開発環境を構築
 - 「Haml」「Scss」でコード記述
 - 「devise」でユーザー機能を実装
@@ -43,6 +43,22 @@ MINIMUM
 - twitterのAPIを導入してログインできるようにしたい。
 
 ## :triangular_ruler: DB設計
+### users(devise)テーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false|
+|encrypted_password|string|null: false|
+
+### Association
+- belongs_to :user, optional: true
+- has_many :buys, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :hates, dependent: :destroy
+- has_many :dumps, dependent: :destroy
+- has_many :dump_comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+
 
 ## :octocat: 製作者
 - [GitHub](https://github.com/Daiki-Abe)
