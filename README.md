@@ -1,24 +1,49 @@
-# README
+# MINIMUM
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## APP_URL
+[MINIMUMへのリンク](https://myminimum.herokuapp.com)
 
-Things you may want to cover:
+## 採用ご担当者様のアカウント
+メールアドレス：「saiyou4444@gmail.com」
+パスワード：「saiyou4444」
 
-* Ruby version
+## アプリ概要
+断捨離した物と購入した物を投稿することで、所持品の管理をすることができるアプリです。
+所持品（断捨離した物と購入した物両方）を把握することで、無駄な買い物を減らすことが目的となっています。
+検索機能やタグ機能もあるため、他のユーザーの投稿も確認しやすいようになっています。
+他のユーザーの投稿（断捨離の一例など）を見ることによって、自身の所持品に対する意識を改める機会にもなります。
+アプリ内では、無駄な物を所有しないこと・無駄な買い物をしないことを良しとするため、
+断捨離した物の投稿　→　「いいね」ボタン、　購入した物の投稿　→　「だめね」ボタン
+を押下できる仕様になっており、それぞれコメントもできるようになっています。
 
-* System dependencies
+## アプリ開発の背景（意図）
+母親が買い物をする際に、同じような物を何度も衝動買いしたり、自宅に有る物かどうか分からなくなるということがありました。
+そんな悩みを解決するようなアプリを作成しようと考えたことがきっかけでした。
+また自分自身も、無駄な物は所有しない「ミニマリスト」を目指していたということもありました。
+母親と自分のニーズ両方にマッチするための仕様を意識しました。
 
-* Configuration
+## DEMO
 
-* Database creation
 
-* Database initialization
+### 使用技術
+- 「Ruby on Rails」で製作
+- 「Docker」で開発環境を構築
+- 「Haml」「Scss」でコード記述
+- 「devise」でユーザー機能を実装
+- 「Ajax通信」でコメント機能を実装
+- 「RuboCop」で静的コード解析テスト
+- 「RSpec」で単体テストと統合テスト
+- 「CircleCI」で自動テスト
+- 「heroku」でデプロイ
+- 「AWS（S3）」でストレージ管理
 
-* How to run the test suite
+## 課題と今後実装したい機能
+- 投稿された写真の色と文字の色が同化してしまうことを解決したい。
+- twitterのAPIを導入してログインできるようにしたい。
 
-* Services (job queues, cache servers, search engines, etc.)
+## DB設計
 
-* Deployment instructions
-
-* ...
+## 製作者
+- [GitHub](https://github.com/Daiki-Abe)
+- [Twitter](https://twitter.com/abeeeee_d)
+- [Qiita](https://qiita.com/Daiki-Abe)
