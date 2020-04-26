@@ -1,5 +1,5 @@
 ## :wrench: アプリ名
-「MINIMUM」
+「Minimum」
 
 ## :globe_with_meridians: URL
 https://myminimum.herokuapp.com
@@ -52,7 +52,6 @@ https://myminimum.herokuapp.com
 |encrypted_password|string|null: false|
 
 ### Association
-- belongs_to :user, optional: true
 - has_many :buys, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_many :hates, dependent: :destroy
@@ -90,8 +89,8 @@ https://myminimum.herokuapp.com
 ### dump_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|dump|references|foreign_key: true, index: true|
-|tag|references|foreign_key: true, index: true|
+|dump_id|references|foreign_key: true, index: true|
+|tag_id|references|foreign_key: true, index: true|
 
 ### Association
 - belongs_to :dump
@@ -100,8 +99,8 @@ https://myminimum.herokuapp.com
 ### likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|foreign_key: true|
-|dump|references|foreign_key: true|
+|user_id|references|foreign_key: true|
+|dump_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -111,8 +110,8 @@ https://myminimum.herokuapp.com
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user|references|foreign_key: true, index: true|
-|dump|references|foreign_key: true|
+|user_id|references|foreign_key: true, index: true|
+|dump_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -137,8 +136,8 @@ https://myminimum.herokuapp.com
 ### buy_tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|buy|references|foreign_key: true, index: true|
-|tag|references|foreign_key: true, index: true|
+|buy_id|references|foreign_key: true, index: true|
+|tag_id|references|foreign_key: true, index: true|
 
 ### Association
 - belongs_to :buy
@@ -147,8 +146,8 @@ https://myminimum.herokuapp.com
 ### hatesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|foreign_key: true|
-|buy|references|foreign_key: true|
+|user_id|references|foreign_key: true|
+|buy_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -158,8 +157,8 @@ https://myminimum.herokuapp.com
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user|references|foreign_key: true, index: true|
-|buy|references|foreign_key: true|
+|user_id|references|foreign_key: true, index: true|
+|buy_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :user
