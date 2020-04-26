@@ -24,6 +24,7 @@ https://myminimum.herokuapp.com
 そんな母親の悩みを解決することと自分のニーズにマッチするようなアプリを作成しようと考えました。<br>
 
 ## :computer: デモ
+<img src ="https://user-images.githubusercontent.com/58421780/80295212-e89d4600-87ab-11ea-9f06-2604b0885268.jpg">
 
 
 ### :art: 使用技術
@@ -39,8 +40,8 @@ https://myminimum.herokuapp.com
 - 「AWS（S3）」でストレージ管理
 
 ## :memo: 課題と今後実装したい機能
-- 投稿された写真の色と文字の色が同化して見づらくなることを解決したい。
-- twitterのAPIを導入してログインできるようにしたい。
+- 投稿された写真の色と文字の色が同系色の場合に見づらくなることを解決したい。
+- ユーザーのフォロー機能を実装したい。
 
 ## :triangular_ruler: DB設計
 ### users(devise)テーブル
@@ -58,6 +59,111 @@ https://myminimum.herokuapp.com
 - has_many :dumps, dependent: :destroy
 - has_many :dump_comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
+
+### dumpsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|goods|string|null: false|
+|price|string|null: false|
+|image|string||
+|description|text|null: false|
+|user_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- has_many :dump_tags, dependent: :destroy
+- has_many :tags, through: :dump_tags
+- has_many :dump_comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+
+### tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|unique: true|
+
+### Association
+- has_many :buy_tags, dependent: :destroy
+- has_many :buys, through: :buy_tags
+- has_many :dump_tags, dependent: :destroy
+- has_many :dumps, through: :dump_tags
+
+### dump_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|dump|references|foreign_key: true, index: true|
+|tag|references|foreign_key: true, index: true|
+
+### Association
+- belongs_to :dump
+- belongs_to :tag
+
+### likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|dump|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :dump
+
+### dump_commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user|references|foreign_key: true, index: true|
+|dump|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :dump
+
+### buysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|goods|string|null: false|
+|price|string|null: false|
+|image|string||
+|description|text|null: false|
+|user_id|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- has_many :buy_tags, dependent: :destroy
+- has_many :tags, through: :buy_tags
+- has_many :comments, dependent: :destroy
+- has_many :hates, dependent: :destroy
+
+### buy_tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|buy|references|foreign_key: true, index: true|
+|tag|references|foreign_key: true, index: true|
+
+### Association
+- belongs_to :buy
+- belongs_to :tag
+
+### hatesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|buy|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :buy
+
+### commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user|references|foreign_key: true, index: true|
+|buy|references|foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :buy
 
 
 ## :octocat: 製作者
