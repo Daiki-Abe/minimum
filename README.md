@@ -24,7 +24,7 @@ https://myminimum.herokuapp.com
 そんな母親の悩みを解決することと自分のニーズにマッチするようなアプリを作成しようと考えました。<br>
 
 ## :computer: デモ
-<img src ="https://user-images.githubusercontent.com/58421780/80297094-379ea780-87bb-11ea-92d8-e39b2727074c.gif">
+<img src ="https://user-images.githubusercontent.com/58421780/80297214-24d8a280-87bc-11ea-8846-e77180dfe747.gif">
 
 
 ### :art: 使用技術
