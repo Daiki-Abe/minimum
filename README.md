@@ -42,6 +42,7 @@ https://myminimum.herokuapp.com
 ## :memo: 課題と今後実装したい機能
 - 投稿された写真の色と文字の色が同系色の場合に見づらくなることを解決したい。
 - ユーザーのフォロー機能を実装したい。
+- CDツールで自動デプロイができるようにしたい。
 
 ## :triangular_ruler: DB設計
 ### users(devise)テーブル
