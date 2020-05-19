@@ -170,5 +170,4 @@ https://myminimum.herokuapp.com
 
 
 ## :octocat: 製作者
-- [GitHub](https://github.com/Daiki-Abe)
 - [Qiita](https://qiita.com/Daiki-Abe)
